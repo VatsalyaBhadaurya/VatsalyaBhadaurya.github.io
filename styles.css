@@ -1163,3 +1163,64 @@ h1, h2, h3, h4, h5, h6 {
     animation: none;
     transform: scale(1.2) rotate(15deg);
 }
+
+/* Enhanced Bio Styling */
+.bio-text {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: var(--gray-200);
+    text-align: left;
+    padding: 0 1rem;
+}
+
+.bio-text:last-of-type {
+    margin-bottom: 2rem;
+}
+
+.about-text {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    margin-bottom: 4rem;
+    transition: all 0.3s ease;
+}
+
+.about-text:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+.desi-quote {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    background: linear-gradient(135deg, rgba(109, 40, 217, 0.1), rgba(219, 39, 119, 0.1));
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--gray-200);
+    font-style: italic;
+}
+
+/* Enhance section transitions */
+.section-title {
+    position: relative;
+    margin-bottom: 4rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    border-radius: 3px;
+}
