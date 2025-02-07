@@ -660,6 +660,48 @@
 
         });
 
+
+
+        // Add intersection observer for animations
+
+        const observerOptions = {
+
+            root: null,
+
+            rootMargin: '0px',
+
+            threshold: 0.1
+
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.style.opacity = '1';
+
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+
+                }
+
+            });
+
+        }, observerOptions);
+
+
+
+        // Observe all animated elements
+
+        document.querySelectorAll('.project-card, .achievement-item, .experience-card').forEach(el => {
+
+            el.style.opacity = '0';
+
+            observer.observe(el);
+
+        });
+
     </script>
 
 </body>
