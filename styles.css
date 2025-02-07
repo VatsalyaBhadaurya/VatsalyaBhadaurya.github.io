@@ -972,3 +972,57 @@ h1, h2, h3, h4, h5, h6 {
 
 .about-content { animation-delay: 0.2s; }
 .experience-content { animation-delay: 0.3s; }
+
+/* Section Content Styling */
+.section-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.content-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+/* Force the glass effect */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+}
+
+/* Ensure proper spacing */
+.about-content,
+.experience-content {
+    margin: 2rem auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Clear any floating elements */
+.container::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+/* Force hardware acceleration */
+.about-content,
+.experience-content,
+.glass-effect {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    perspective: 1000;
+    -webkit-perspective: 1000;
+}
