@@ -40,6 +40,10 @@
 
     --gray-900: #111827;
 
+    --card-bg: rgba(255, 255, 255, 0.1);
+
+    --hover-bg: rgba(255, 255, 255, 0.05);
+
 }
 
 
@@ -94,13 +98,15 @@ h1, h2, h3, h4, h5, h6 {
 
     right: 0;
 
-    background-color: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.7);
 
     backdrop-filter: blur(10px);
 
     z-index: 1000;
 
     padding: 1rem 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
 }
 
@@ -186,7 +192,8 @@ h1, h2, h3, h4, h5, h6 {
 
     padding: 6rem 0;
 
-    background: radial-gradient(circle at top right, rgba(109, 40, 217, 0.1), transparent);
+    background: radial-gradient(circle at top right, rgba(109, 40, 217, 0.1), transparent 50%),
+                radial-gradient(circle at bottom left, rgba(219, 39, 119, 0.1), transparent 50%);
 
 }
 
@@ -300,21 +307,27 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn.primary:hover {
 
+    background: linear-gradient(
+        45deg,
+        #FF9933,  /* Saffron */
+        #FFFFFF,  /* White */
+        #138808   /* Green */
+    );
     opacity: 0.9;
-
     transform: translateY(-2px);
-
 }
 
 
 
 .btn.secondary {
 
-    background-color: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
 
     color: var(--text-color);
 
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    backdrop-filter: blur(5px);
 
 }
 
@@ -322,7 +335,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn.secondary:hover {
 
-    background-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+
+    border-color: rgba(255, 255, 255, 0.2);
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 
     transform: translateY(-2px);
 
@@ -336,7 +353,8 @@ h1, h2, h3, h4, h5, h6 {
 
     padding: 6rem 0;
 
-    background: radial-gradient(circle at bottom left, rgba(219, 39, 119, 0.1), transparent);
+    background: radial-gradient(circle at bottom left, rgba(109, 40, 217, 0.1), transparent 50%),
+                radial-gradient(circle at top right, rgba(219, 39, 119, 0.1), transparent 50%);
 
 }
 
@@ -366,9 +384,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .about-text {
 
-    text-align: center;
+    padding: 2rem;
+
+    border-radius: 1rem;
 
     margin-bottom: 3rem;
+
+    text-align: center;
 
     font-size: 1.125rem;
 
@@ -392,7 +414,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .highlight-card {
 
-    background-color: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    backdrop-filter: blur(10px);
+
+    transition: all 0.3s ease;
 
     padding: 2rem;
 
@@ -400,13 +428,17 @@ h1, h2, h3, h4, h5, h6 {
 
     text-align: center;
 
-    transition: transform 0.3s ease;
-
 }
 
 
 
 .highlight-card:hover {
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border-color: rgba(255, 255, 255, 0.2);
+
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 
     transform: translateY(-5px);
 
@@ -430,7 +462,8 @@ h1, h2, h3, h4, h5, h6 {
 
     padding: 6rem 0;
 
-    background: radial-gradient(circle at center, rgba(109, 40, 217, 0.1), transparent);
+    background: radial-gradient(circle at center, rgba(109, 40, 217, 0.1), transparent 60%),
+                radial-gradient(circle at top left, rgba(219, 39, 119, 0.1), transparent 50%);
 
 }
 
@@ -450,21 +483,33 @@ h1, h2, h3, h4, h5, h6 {
 
 
 
-.project-card {
+.project-card, .achievement-list {
 
-    background-color: rgba(255, 255, 255, 0.05);
+    margin-bottom: 1.5rem;
 
-    padding: 2rem;
+    padding: 1rem;
 
-    border-radius: 1rem;
+    border-radius: 8px;
 
-    transition: transform 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    backdrop-filter: blur(10px);
+
+    transition: all 0.3s ease;
 
 }
 
 
 
 .project-card:hover {
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border-color: rgba(255, 255, 255, 0.2);
+
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 
     transform: translateY(-5px);
 
@@ -477,6 +522,24 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--primary-color);
 
     margin-bottom: 1rem;
+
+    transition: all 0.3s ease;
+
+}
+
+
+
+.project-card:hover h3 {
+
+    transform: scale(1.05);
+
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
 
 }
 
@@ -506,7 +569,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .tags span {
 
-    background-color: rgba(109, 40, 217, 0.2);
+    background: linear-gradient(135deg, rgba(109, 40, 217, 0.2), rgba(219, 39, 119, 0.2));
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    backdrop-filter: blur(5px);
+
+    transition: all 0.3s ease;
 
     color: var(--primary-color);
 
@@ -520,13 +589,24 @@ h1, h2, h3, h4, h5, h6 {
 
 
 
+.tags span:hover {
+
+    background: linear-gradient(135deg, rgba(109, 40, 217, 0.3), rgba(219, 39, 119, 0.3));
+
+    transform: translateY(-2px);
+
+}
+
+
+
 /* Contact Section */
 
 .contact {
 
     padding: 6rem 0;
 
-    background: radial-gradient(circle at bottom right, rgba(219, 39, 119, 0.1), transparent);
+    background: radial-gradient(circle at bottom right, rgba(109, 40, 217, 0.1), transparent 50%),
+                radial-gradient(circle at top left, rgba(219, 39, 119, 0.1), transparent 50%);
 
 }
 
@@ -539,6 +619,30 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 auto;
 
     text-align: center;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    backdrop-filter: blur(10px);
+
+    padding: 2rem;
+
+    border-radius: 1rem;
+
+    transition: all 0.3s ease;
+
+}
+
+
+
+.contact-content:hover {
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border-color: rgba(255, 255, 255, 0.2);
+
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 
 }
 
@@ -572,11 +676,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer {
 
-    background-color: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.8);
+
+    backdrop-filter: blur(10px);
 
     padding: 2rem 0;
 
     text-align: center;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 
 }
 
@@ -788,294 +896,270 @@ h1, h2, h3, h4, h5, h6 {
 
 
 
-/* Experience Section */
-
+/* Enhanced Experience Section */
 .experience {
-
-    padding: 6rem 0;
-
     background: radial-gradient(circle at center, rgba(109, 40, 217, 0.1), transparent);
-
+    padding: 6rem 0;
 }
 
+.achievements-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
 
+.achievement-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.achievement-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.achievement-icon {
+    font-size: 1.5rem;
+    min-width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(109, 40, 217, 0.2), rgba(219, 39, 119, 0.2));
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.achievement-item:hover .achievement-icon {
+    animation: none;
+    transform: scale(1.2) rotate(15deg);
+}
 
 .experience-grid {
-
     display: grid;
-
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
     gap: 2rem;
-
-    margin-bottom: 4rem;
-
 }
-
-
 
 .experience-card {
-
-    background-color: rgba(255, 255, 255, 0.05);
-
+    background: rgba(255, 255, 255, 0.05);
     padding: 2rem;
-
     border-radius: 1rem;
-
-    transition: transform 0.3s ease;
-
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
 }
-
-
 
 .experience-card:hover {
-
     transform: translateY(-5px);
-
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
-
-
-
-.experience-header {
-
-    margin-bottom: 1.5rem;
-
-}
-
-
 
 .experience-header h3 {
-
     color: var(--primary-color);
-
     margin-bottom: 0.5rem;
-
-}
-
-
-
-.company {
-
-    display: block;
-
-    color: var(--gray-300);
-
-    font-size: 1.1rem;
-
-    margin-bottom: 0.25rem;
-
-}
-
-
-
-.period {
-
-    display: block;
-
-    color: var(--gray-400);
-
-    font-size: 0.9rem;
-
-}
-
-
-
-.achievements {
-
-    margin-top: 1rem;
-
-    padding-left: 1.5rem;
-
-}
-
-
-
-.achievements li {
-
-    color: var(--gray-300);
-
-    margin-bottom: 0.5rem;
-
-}
-
-
-
-/* Skills Section */
-
-.skills-title {
-
-    font-size: 2rem;
-
-    text-align: center;
-
-    margin: 3rem 0;
-
-    color: var(--gray-300);
-
-}
-
-
-
-.skills-grid {
-
-    display: grid;
-
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
-    gap: 2rem;
-
-}
-
-
-
-.skill-category {
-
-    background-color: rgba(255, 255, 255, 0.05);
-
-    padding: 2rem;
-
-    border-radius: 1rem;
-
-}
-
-
-
-.skill-category h4 {
-
-    color: var(--primary-color);
-
-    margin-bottom: 1.5rem;
-
     font-size: 1.25rem;
-
 }
 
-
-
-.skill-bars {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 1.5rem;
-
+.company, .period {
+    color: var(--gray-400);
+    font-size: 0.9rem;
 }
 
-
-
-.skill-bar {
-
-    width: 100%;
-
+.experience-card ul {
+    margin-top: 1rem;
+    padding-left: 1.5rem;
 }
 
-
-
-.skill-info {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    margin-bottom: 0.5rem;
-
+.experience-card li {
     color: var(--gray-300);
-
+    margin: 0.5rem 0;
+    transition: transform 0.3s ease;
 }
 
-
-
-.skill-progress {
-
-    width: 100%;
-
-    height: 8px;
-
-    background-color: rgba(255, 255, 255, 0.1);
-
-    border-radius: 4px;
-
-    overflow: hidden;
-
+.experience-card li:hover {
+    transform: translateX(10px);
 }
-
-
-
-.progress {
-
-    height: 100%;
-
-    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-
-    border-radius: 4px;
-
-    transition: width 1s ease-in-out;
-
-}
-
-
-
-/* Responsive adjustments */
 
 @media (max-width: 768px) {
-
+    .achievements-list,
     .experience-grid {
-
         grid-template-columns: 1fr;
-
     }
-
-
-
-    .skills-grid {
-
-        grid-template-columns: 1fr;
-
+    
+    .achievement-item,
+    .experience-card {
+        padding: 1.25rem;
     }
-
-
-
-    .skills-title {
-
-        font-size: 1.75rem;
-
-    }
-
 }
 
-
-
-/* Animation for skill bars */
-
-.skill-category {
-
-    opacity: 0;
-
-    transform: translateY(20px);
-
-    animation: fadeInUp 0.6s ease forwards;
-
+/* Common glass-morphism effect */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
 }
 
+.glass-effect:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
 
+/* Social Icons Styling */
+.btn i {
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+}
 
-@keyframes fadeInUp {
+.btn.secondary i {
+    transition: transform 0.3s ease;
+}
 
-    to {
+.btn.secondary:hover i {
+    transform: scale(1.1);
+}
 
-        opacity: 1;
+/* Specific colors for social icons on hover */
+.btn.secondary:hover .fa-github {
+    color: #2ea44f;
+}
 
+.btn.secondary:hover .fa-linkedin {
+    color: #0077b5;
+}
+
+.btn.secondary:hover .fa-youtube {
+    color: #ff0000;
+}
+
+.btn.secondary:hover .fa-envelope {
+    color: #ea4335;
+}
+
+/* Enhance button hover effect */
+.btn.secondary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn.secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.btn.secondary:hover::before {
+    left: 100%;
+}
+
+/* Desi touches */
+.desi-quote {
+    margin-top: 1.5rem;
+    font-style: italic;
+    color: var(--gray-300);
+    padding: 1rem;
+    background: linear-gradient(135deg, rgba(109, 40, 217, 0.1), rgba(219, 39, 119, 0.1));
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.desi-footer {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--gray-400);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
         transform: translateY(0);
-
     }
-
+    50% {
+        transform: translateY(-5px);
+    }
 }
 
+/* Add tricolor gradient to primary buttons on hover */
+.btn.primary:hover {
+    background: linear-gradient(
+        45deg,
+        #FF9933,  /* Saffron */
+        #FFFFFF,  /* White */
+        #138808   /* Green */
+    );
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
 
+/* Add fun hover effect to project titles */
+.project-card h3 {
+    transition: all 0.3s ease;
+}
 
-.skill-category:nth-child(1) { animation-delay: 0.2s; }
+.project-card:hover h3 {
+    transform: scale(1.05);
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
-.skill-category:nth-child(2) { animation-delay: 0.4s; }
+/* Add a fun loading animation to the achievement icons */
+.achievement-icon {
+    animation: spin 10s linear infinite;
+}
 
-.skill-category:nth-child(3) { animation-delay: 0.6s; }
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.achievement-item:hover .achievement-icon {
+    animation: none;
+    transform: scale(1.2) rotate(15deg);
+}
