@@ -26,9 +26,10 @@
 
 <body>
 
-
-
-    
+    <!-- Add this after <body> -->
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar"></div>
+    </div>
 
     <!-- Navigation -->
 
@@ -50,9 +51,11 @@
 
             <ul class="nav-links">
 
-                <li><a href="#home">Home</a></li>
+                <li class="desktop-only"><a href="#home-desktop">Home</a></li>
 
-                <li><a href="#about">About</a></li>
+                <li class="mobile-only"><a href="#home-mobile">Home</a></li>
+
+                <li class="desktop-only"><a href="#about">About</a></li>
 
                 <li><a href="#projects">Projects</a></li>
 
@@ -68,9 +71,9 @@
 
 
 
-    <!-- Hero Section -->
+    <!-- Desktop Hero Section -->
 
-    <section id="home" class="hero">
+    <section id="home-desktop" class="hero desktop-only">
 
         <div class="container">
 
@@ -132,44 +135,70 @@
 
 
 
+    <!-- Mobile Hero Section -->
+
+    <section id="home-mobile" class="hero mobile-only">
+        <div class="container">
+            <div class="hero-content">
+                <div class="mobile-header">
+                    <h2 class="subtitle">Innovator | Developer | AI Enthusiast | Desi Tech Ninja 🚀</h2>
+                    <h1 class="title">Namaste, I'm <span class="gradient-text">Vatsalya Bhadaurya</span></h1>
+                </div>
+                
+                <p class="description">
+                    Building AI & IoT solutions with real-world impact. 
+                    From Arduino Week to healthcare AI systems. 🇮🇳✨
+                </p>
+
+                <div class="cta-buttons">
+                    <a href="https://drive.google.com/file/d/1s3ECC6D2Z6L2P2yDSDkpzWIVig9JkDLZ/view?usp=sharing" 
+                       class="btn primary" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        <i class="fas fa-download"></i>
+                        Resume
+                    </a>
+                    <div class="social-buttons">
+                        <a href="https://github.com/VatsalyaBhadaurya" class="btn secondary">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                        <a href="https://linkedin.com/in/vatsalya-bhadaurya" class="btn secondary">
+                            <i class="fab fa-linkedin"></i>
+                            LinkedIn
+                        </a>
+                        <a href="https://www.youtube.com/@CodeSalya" class="btn secondary">
+                            <i class="fab fa-youtube"></i>
+                            YouTube
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
     <!-- About Section -->
 
-    <section id="about" class="about">
-
+    <section id="about" class="about desktop-only">
         <div class="container">
-
             <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
-
             <div class="about-content glass-effect section-content">
-
                 <div class="about-text content-wrapper">
-
                     <p class="bio-text">
-
                         My journey in tech began in grade 8, and since then, I've been passionate about merging AI, IoT, and embedded systems to solve real-world problems. I specialize in developing solutions for healthcare, finance, agriculture, and automation sectors.
-
                     </p>
-
                     <p class="bio-text">
-
                         As a Community Speaker at Arduino.cc and international representative at Arduino Week, I've shared my knowledge through workshops on electronics and 3D printing, inspiring the next generation of innovators.
-
                     </p>
-
                     <p class="bio-text">
-
                         Currently, I'm exploring advanced Machine Learning applications, with a focus on healthcare and automation systems. My goal is to create AI solutions that make a meaningful impact on society.
-
                     </p>
-
                     <p class="desi-quote">"Kabhi kabhi lagta hai apun hi bhagwan hai" - Me, after fixing a bug at 3 AM 🥸"</p>
-
                 </div>
-
             </div>
-
         </div>
-
     </section>
 
 
@@ -494,8 +523,6 @@
 
                     </div>
 
-
-
                    
 
 
@@ -733,6 +760,16 @@
 
             }, 100);
 
+        });
+
+
+
+        // Scroll Progress Indicator
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.querySelector('.scroll-progress-bar');
+            const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (window.scrollY / totalScroll) * 100;
+            scrollProgress.style.width = `${scrolled}%`;
         });
 
     </script>
