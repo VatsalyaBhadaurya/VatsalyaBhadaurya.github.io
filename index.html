@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 
 <html lang="en">
 
@@ -49,7 +49,7 @@
     <div class="scroll-progress">
         <div class="scroll-progress-bar"></div>
     </div>
-
+    
     <!-- Navigation -->
 
     <nav class="navbar">
@@ -104,7 +104,7 @@
 
                 <p class="description">
 
-                    A passionate Computer Science student at GBU with over 6 years of experience & learning building AI, IoT, and embedded solutions. 
+                    A passionate Computer Science student at GBU with over 6 years of experience & learning building Android APPs, AI, IoT, and embedded solutions. 
 
                     From representing India at Arduino Week to developing healthcare AI systems, I'm on a mission to create tech that matters. 🇮🇳✨
 
@@ -165,8 +165,7 @@
                 </div>
                 
                 <p class="description">
-                    Building AI & IoT solutions with real-world impact. 
-                    From Arduino Week to healthcare AI systems. 🇮🇳✨
+                    Building Android Apps, AI, IoT, and embedded solutions with real-world impact. 🇮🇳✨
                 </p>
 
                 <div class="cta-buttons">
@@ -434,7 +433,7 @@
 
                         <p>Community Speaker at Arduino.cc</p>
 
-                    </div>
+                </div>
 
                     <div class="achievement-item">
 
@@ -450,7 +449,7 @@
 
                         <p>Two Apps Live Online</p>
 
-                    </div>
+                </div>
 
                     <div class="achievement-item">
 
@@ -466,7 +465,7 @@
 
                         <p>Selected for Smart India Hackathon (SIH) 2024</p>
 
-                    </div>
+                </div>
 
                     <div class="achievement-item">
 
@@ -474,7 +473,7 @@
 
                         <p>2nd Place in Entrepreneur Hackathon 2024</p>
 
-                    </div>
+            </div>
 
                     <div class="achievement-item">
 
@@ -482,7 +481,7 @@
 
                         <p>Shortlisted for College Internship & Selected for Rads Global Internship</p>
 
-                    </div>
+                            </div>
 
                     <div class="achievement-item">
 
@@ -498,7 +497,7 @@
 
                         <p>Community Member of HackFed (College Tech Community)</p>
 
-                    </div>
+                </div>
 
                     <div class="achievement-item">
 
@@ -540,7 +539,7 @@
 
                         </ul>
 
-                    </div>
+                            </div>
 
                    
 
@@ -655,6 +654,32 @@
     </footer>
 
 
+
+    <!-- Add cursor elements -->
+    <div class="cursor"></div>
+    <div class="cursor-trail"></div>
+
+    <!-- Add this before closing body tag -->
+    <div class="chat-bot-container">
+        <button class="chat-bot-toggle">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+        <div class="chat-bot-window">
+            <div class="chat-header">
+                <h3>Chat with VattyAI</h3>
+                <button class="close-chat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-messages"></div>
+            <div class="chat-input-container">
+                <input type="text" class="chat-input" placeholder="Ask me anything...">
+                <button class="send-message">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script>
 
@@ -791,8 +816,169 @@
             scrollProgress.style.width = `${scrolled}%`;
         });
 
+
+        // Smooth Cursor Animation
+        if (window.innerWidth > 768) {
+            const cursor = document.querySelector('.cursor');
+            const cursorTrail = document.querySelector('.cursor-trail');
+            
+            let mouseX = 0;
+            let mouseY = 0;
+            let cursorX = 0;
+            let cursorY = 0;
+            
+            // Smooth follow effect
+            function animate() {
+                // Smooth interpolation
+                const diffX = mouseX - cursorX;
+                const diffY = mouseY - cursorY;
+                
+                cursorX += diffX * 0.1; // Adjust speed here (0.1 for smoother movement)
+                cursorY += diffY * 0.1;
+                
+                cursor.style.left = `${cursorX}px`;
+                cursor.style.top = `${cursorY}px`;
+                
+                // Trail effect
+                cursorTrail.style.left = `${mouseX}px`;
+                cursorTrail.style.top = `${mouseY}px`;
+                
+                requestAnimationFrame(animate);
+            }
+            
+            // Update mouse position
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+            
+            // Start animation
+            animate();
+            
+            // Hide cursor when leaving window
+            document.addEventListener('mouseout', () => {
+                cursor.style.opacity = '0';
+                cursorTrail.style.opacity = '0';
+            });
+            
+            document.addEventListener('mouseover', () => {
+                cursor.style.opacity = '1';
+                cursorTrail.style.opacity = '0.3';
+            });
+            
+            // Enhanced hover effects
+            document.querySelectorAll('a, button, .project-card').forEach(element => {
+                element.addEventListener('mouseover', () => {
+                    cursor.style.transform = 'translate(-50%, -50%) scale(1.2) rotate(15deg)';
+                    if (element.classList.contains('project-card')) {
+                        cursor.style.filter = 'hue-rotate(45deg)';
+                    }
+                });
+                
+                element.addEventListener('mouseout', () => {
+                    cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+                    cursor.style.filter = 'none';
+                });
+            });
+        }
+
+    </script>
+
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script>
+    // Chatbot Implementation
+    const chatContainer = document.querySelector('.chat-bot-container');
+    const toggleButton = document.querySelector('.chat-bot-toggle');
+    const closeButton = document.querySelector('.close-chat');
+    const chatWindow = document.querySelector('.chat-bot-window');
+    const messagesContainer = document.querySelector('.chat-messages');
+    const chatInput = document.querySelector('.chat-input');
+    const sendButton = document.querySelector('.send-message');
+
+    const API_KEY = 'AIzaSyAmSdliZN5lur_P-0i0E-bcNhV4MxGgqP4';
+    const context = `You're Vatsalya, a CS student at GBU with 6+ years of experience in technology since grade 8. You're skilled in app development, AI/ML, IoT, embedded electronics.
+
+Experience & Achievements:
+- International Recognition: Represented India at Arduino Week, Community Speaker at Arduino.cc
+- Hackathons & Innovation: 2nd place in Entrepreneur Hackathon 2024, Science & Innovation award from Amity University
+- Patent & Publications: Have an applied patent and conducted workshops on electronics and 3D printing
+- Internships & Leadership: Selected for remote internship at Rads Global, shortlisted for internship at GBU
+- Entrepreneurial Mindset: Working on side hustle developing iOS and Android apps for college students
+
+Notable Projects:
+- BaddieBot: AI chatbot with rebellious personality
+- MaaFoods: Home-cooked meal delivery app
+- SkitterzAI: AI plant disease detection
+- MoodTune: AI music recommendation system
+- And many more innovative solutions
+
+Currently balancing college studies, projects, internships, and startup initiatives.`;
+
+    toggleButton.addEventListener('click', () => {
+        chatWindow.classList.toggle('active');
+        toggleButton.classList.toggle('active');
+    });
+
+    closeButton.addEventListener('click', () => {
+        chatWindow.classList.remove('active');
+        toggleButton.classList.remove('active');
+    });
+
+    async function sendMessage(message) {
+        // Add user message to chat
+        addMessage('user', message);
+
+        try {
+            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    contents: [{
+                        parts: [{
+                            text: `${context}\n\nUser: ${message}\nVatsalya:`
+                        }]
+                    }]
+                })
+            });
+
+            const data = await response.json();
+            const reply = data.candidates[0].content.parts[0].text;
+            addMessage('bot', reply);
+        } catch (error) {
+            console.error('Error:', error);
+            addMessage('bot', 'Sorry, I encountered an error. Please try again.');
+        }
+    }
+
+    function addMessage(type, message) {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', type);
+        messageDiv.textContent = message;
+        messagesContainer.appendChild(messageDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    sendButton.addEventListener('click', () => {
+        const message = chatInput.value.trim();
+        if (message) {
+            sendMessage(message);
+            chatInput.value = '';
+        }
+    });
+
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            const message = chatInput.value.trim();
+            if (message) {
+                sendMessage(message);
+                chatInput.value = '';
+            }
+        }
+        });
     </script>
 
 </body>
 
-</html> 
+</html>

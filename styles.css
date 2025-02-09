@@ -36,6 +36,8 @@ body {
     color: var(--text-color);
     background-color: var(--bg-color);
     cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ctext x='0' y='20' font-size='20'%3E☕%3C/text%3E%3C/svg%3E"), auto;
+    -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+    scrollbar-width: none;  /* Hide scrollbar for Firefox */
 }
 
 
@@ -1578,9 +1580,9 @@ h1, h2, h3, h4, h5, h6 {
     /* Improved Mobile Buttons */
     .cta-buttons {
         display: flex;
-        flex-direction: column;
+    flex-direction: column;
         align-items: center;
-        gap: 1.5rem;
+    gap: 1.5rem;
     }
 
     .btn.primary {
@@ -1918,67 +1920,306 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-/* Desi Scroll Indicator */
+/* Remove default scrollbar */
 ::-webkit-scrollbar {
-    width: 12px;
+    display: none;  /* Hide scrollbar for Chrome, Safari, Opera */
 }
 
-::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
+body {
+    -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+    scrollbar-width: none;  /* Hide scrollbar for Firefox */
 }
 
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(
-        45deg,
-        #FF9933,  /* Saffron */
-        #FFFFFF,  /* White */
-        #138808   /* Green */
-    );
-    border-radius: 10px;
-    border: 3px solid rgba(0, 0, 0, 0.3);
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(
-        45deg,
-        #138808,  /* Green */
-        #FFFFFF,  /* White */
-        #FF9933   /* Saffron */
-    );
-}
-
-/* Scroll Progress Indicator */
+/* Clean Progress Bar */
 .scroll-progress {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 4px;
-    background: rgba(0, 0, 0, 0.5);
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
     z-index: 1005;
-}
-
-.scroll-progress::after {
-    content: '☕';
-    position: absolute;
-    top: 8px;
-    right: 0;
-    font-size: 20px;
-    transform: translateX(50%);
-    animation: steamAnimation 2s infinite;
-    z-index: 1006;
 }
 
 .scroll-progress-bar {
     height: 100%;
     background: linear-gradient(
         90deg,
-        #FF9933,  /* Saffron */
-        #FFFFFF,  /* White */
-        #138808   /* Green */
+        var(--primary-color),
+        var(--secondary-color)
     );
     width: 0%;
-    transition: width 0.1s ease;
-    box-shadow: 0 0 10px rgba(255, 153, 51, 0.5);
+    transition: width 0.2s ease;
+    box-shadow: 0 0 15px rgba(109, 40, 217, 0.3);
+    position: relative;
+}
+
+/* Add glow effect to progress bar */
+.scroll-progress-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Remove all binary-related code */
+.binary-rain,
+.binary-column,
+[data-binary],
+.binary-effect {
+    display: none !important;
+}
+
+/* Clean up any leftover animations */
+@keyframes binary,
+@keyframes rain,
+@keyframes glow {
+    display: none !important;
+}
+
+/* Chatbot Styles */
+.chat-bot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.chat-bot-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    animation: pulseAttention 2s infinite, bounceIn 1s ease-out;
+    position: relative;
+}
+
+/* Pulse animation for constant attention */
+@keyframes pulseAttention {
+    0% {
+        box-shadow: 0 0 0 0 rgba(109, 40, 217, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(109, 40, 217, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(109, 40, 217, 0);
+    }
+}
+
+/* Initial bounce animation when page loads */
+@keyframes bounceIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.1);
+    }
+    80% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Message indicator */
+.chat-bot-toggle::after {
+    content: 'Chat with me! 👋';
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--primary-color);
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    animation: showMessage 3s infinite;
+}
+
+@keyframes showMessage {
+    0%, 100% {
+    opacity: 0;
+        transform: translateY(10px);
+    }
+    10%, 90% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover effects */
+.chat-bot-toggle:hover {
+    transform: scale(1.1) rotate(5deg);
+    animation: none;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .chat-bot-toggle {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .chat-bot-toggle::after {
+        font-size: 12px;
+        top: -35px;
+    }
+}
+
+/* Chatbot Window Styles */
+.chat-bot-window {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 350px;
+    height: 500px;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chat-bot-window.active {
+    display: flex;
+}
+
+.chat-header {
+    padding: 1rem;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.chat-messages::-webkit-scrollbar {
+    display: none;
+}
+
+.message {
+    padding: 1rem 1.2rem;
+    border-radius: 15px;
+    max-width: 80%;
+    word-wrap: break-word;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.message.user {
+    background: var(--primary-color);
+    color: white;
+    align-self: flex-end;
+    margin-left: 20%;
+}
+
+.message.bot {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    align-self: flex-start;
+    margin-right: 20%;
+}
+
+.chat-input-container {
+    padding: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    background: rgba(0, 0, 0, 0.8);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chat-input {
+    flex: 1;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 0.9rem;
+}
+
+.chat-input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.send-message {
+    background: var(--primary-color);
+    border: none;
+    border-radius: 10px;
+    width: 40px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.send-message:hover {
+    transform: scale(1.1);
+}
+
+/* Mobile Responsive Chat */
+@media (max-width: 768px) {
+    .chat-bot-window {
+        width: calc(100vw - 40px);
+        height: 70vh;
+        bottom: 80px;
+        right: 20px;
+    }
+
+    .message {
+        max-width: 85%;
+        font-size: 0.9rem;
+        padding: 0.8rem 1rem;
+    }
+
+    .chat-input-container {
+        padding: 0.8rem;
+    }
 }
