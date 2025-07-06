@@ -10,7 +10,7 @@
 
     <title>Vatsalya</title>
 
-    <link rel="stylesheet" href="styles.css?v=1.0.1">
+    <link rel="stylesheet" href="styles.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -23,6 +23,9 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
+
+    <!-- Add Google's Generative AI Library -->
+    <script src="https://unpkg.com/@google/generative-ai@0.1.3/dist/generative-ai.js"></script>
 
     <script>
         // Force reload on back/forward navigation
@@ -45,6 +48,10 @@
 
 <body>
 
+    <!-- Background Elements -->
+    <div class="bg-grid"></div>
+    <div class="bg-gradient"></div>
+
     <!-- Add this after <body> -->
     <div class="scroll-progress">
         <div class="scroll-progress-bar"></div>
@@ -56,7 +63,19 @@
 
         <div class="container">
 
-            <a href="#" class="logo">Vatsalya Bhadaurya</a>
+            <a href="#" class="logo">VB</a>
+
+            <div class="nav-links">
+
+                <a href="#home" class="nav-link">Home</a>
+
+                <a href="#about" class="nav-link">About</a>
+
+                <a href="#highlights" class="nav-link">Highlights</a>
+
+                <a href="#contact" class="nav-link">Contact</a>
+
+            </div>
 
             <button class="mobile-menu-btn">
 
@@ -68,51 +87,35 @@
 
             </button>
 
-            <ul class="nav-links">
-
-                <li class="desktop-only"><a href="#home-desktop">Home</a></li>
-
-                <li class="mobile-only"><a href="#home-mobile">Home</a></li>
-
-                <li class="desktop-only"><a href="#about">About</a></li>
-
-                <li><a href="#projects">Projects</a></li>
-
-                <li><a href="#experience">Experience</a></li>
-
-                <li><a href="#contact">Contact</a></li>
-
-            </ul>
-
         </div>
 
     </nav>
 
 
 
-    <!-- Desktop Hero Section -->
+    <!-- Hero Section -->
 
-    <section id="home-desktop" class="hero desktop-only">
+    <section id="home" class="hero">
 
         <div class="container">
 
-            <div class="hero-content">
+            <div class="hero-flex">
 
-                <h2 class="subtitle">Innovator | Developer | AI Enthusiast | Desi Tech Ninja 🚀</h2>
+                <div class="hero-text">
 
-                <h1 class="title">Namaste, I'm <span class="gradient-text">Vatsalya Bhadaurya!</span></h1>
+                    <h2 class="subtitle">Tech Innovator | Turning Ideas into Impact | Building What Matters</h2>
+
+                    <h1 class="title">नमस्ते, I'm <br>Vatsalya Bhadaurya</h1>
 
                 <p class="description">
 
-                    A passionate Computer Science student at GBU with over 6 years of experience & learning building Android APPs, AI, IoT, and embedded solutions. 
-
-                    From representing India at Arduino Week to developing healthcare AI systems, I'm on a mission to create tech that matters. 🇮🇳✨
+                        Transforming ideas into impactful solutions through technology. As a Computer Science innovator, I specialize in developing scalable applications across healthcare, fintech, and agricultural sectors.
 
                 </p>
 
                 <div class="cta-buttons">
 
-                    <a href="https://drive.google.com/file/d/1xzr71FOUXFh-abZGiVzgiVvoTu9B-hRG/view?usp=sharing" 
+                        <a href="https://drive.google.com/file/d/1ReS8BU72AIzqJ5oh2wvYL5WsP1T4RcY6/view" 
                        class="btn primary" 
                        target="_blank" 
                        rel="noopener noreferrer">
@@ -120,28 +123,18 @@
                         Download Resume
                     </a>
 
-                    <a href="https://github.com/VatsalyaBhadaurya" class="btn secondary">
+                        <div class="social-links">
 
+                            <a href="https://github.com/VatsalyaBhadaurya" class="social-link" title="GitHub">
                         <i class="fab fa-github"></i>
-
-                        GitHub
-
                     </a>
 
-                    <a href="https://linkedin.com/in/vatsalya-bhadaurya" class="btn secondary">
-
+                            <a href="https://linkedin.com/in/vatsalya-bhadaurya" class="social-link" title="LinkedIn">
                         <i class="fab fa-linkedin"></i>
-
-                        LinkedIn
-
                     </a>
 
-                    <a href="https://www.youtube.com/@CodeSalya" class="btn secondary">
-
+                            <a href="https://www.youtube.com/@CodeSalya" class="social-link" title="YouTube">
                         <i class="fab fa-youtube"></i>
-
-                        YouTube
-
                     </a>
 
                 </div>
@@ -150,70 +143,62 @@
 
         </div>
 
-    </section>
-
-
-
-    <!-- Mobile Hero Section -->
-
-    <section id="home-mobile" class="hero mobile-only">
-        <div class="container">
-            <div class="hero-content">
-                <div class="mobile-header">
-                    <h2 class="subtitle">Innovator | Developer | AI Enthusiast | Desi Tech Ninja 🚀</h2>
-                    <h1 class="title">Namaste, I'm <span class="gradient-text">Vatsalya Bhadaurya</span></h1>
+                <div class="hero-stats-wrapper">
+                    <div class="hero-stats stats-row">
+                        <div class="stat-item animate-stat" data-count="10+">
+                            <span class="stat-icon">🚀</span>
+                            <span class="stat-number">0</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                        <div class="stat-item animate-stat" data-count="7">
+                            <span class="stat-icon">🏆</span>
+                            <span class="stat-number">0</span>
+                            <span class="stat-label">Awards Won</span>
+                        </div>
+                        <div class="stat-item animate-stat" data-count="3+">
+                            <span class="stat-icon">⏳</span>
+                            <span class="stat-number">0</span>
+                            <span class="stat-label">Years Experience</span>
                 </div>
-                
-                <p class="description">
-                    Building Android Apps, AI, IoT, and embedded solutions with real-world impact. 🇮🇳✨
-                </p>
-
-                <div class="cta-buttons">
-                    <a href="https://drive.google.com/file/d/1xzr71FOUXFh-abZGiVzgiVvoTu9B-hRG/view?usp=sharing" 
-                       class="btn primary" 
-                       target="_blank" 
-                       rel="noopener noreferrer">
-                        <i class="fas fa-download"></i>
-                        Resume
-                    </a>
-                    <div class="social-buttons">
-                        <a href="https://github.com/VatsalyaBhadaurya" class="btn secondary">
-                            <i class="fab fa-github"></i>
-                            GitHub
-                        </a>
-                        <a href="https://linkedin.com/in/vatsalya-bhadaurya" class="btn secondary">
-                            <i class="fab fa-linkedin"></i>
-                            LinkedIn
-                        </a>
-                        <a href="https://www.youtube.com/@CodeSalya" class="btn secondary">
-                            <i class="fab fa-youtube"></i>
-                            YouTube
-                        </a>
                     </div>
+                    <div class="stats-pun">Stats so good, even my code is jealous! 😎</div>
                 </div>
+
+            </div>
+
+        </div>
+
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <div class="arrows">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
+
     </section>
 
 
 
-    <!-- About Section -->
-
-    <section id="about" class="about desktop-only">
+    <!-- About Me Section (Visually Enhanced) -->
+    <section id="about" class="about animate-section">
         <div class="container">
-            <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
-            <div class="about-content glass-effect section-content">
-                <div class="about-text content-wrapper">
-                    <p class="bio-text">
+        <h2 class="section-title accent-underline"><span class="about-icon">👋</span> About <span>Me</span></h2>
+        <div class="about-glass-card">
+          <div class="about-text">
+            <p>
                         My journey in tech began in grade 8, and since then, I've been passionate about merging AI, IoT, and embedded systems to solve real-world problems. I specialize in developing solutions for healthcare, finance, agriculture, and automation sectors.
                     </p>
-                    <p class="bio-text">
+            <p>
                         As a Community Speaker at Arduino.cc and international representative at Arduino Week, I've shared my knowledge through workshops on electronics and 3D printing, inspiring the next generation of innovators.
                     </p>
-                    <p class="bio-text">
+            <p>
                         Currently, I'm exploring advanced Machine Learning applications, with a focus on healthcare and automation systems. My goal is to create AI solutions that make a meaningful impact on society.
                     </p>
-                    <p class="desi-quote">"Kabhi kabhi lagta hai apun hi bhagwan hai" - Me, after fixing a bug at 3 AM 🥸"</p>
+            <div class="about-pun" title="Warning: May cause sudden inspiration!">💡 Pro tip: Reading this section may cause a sudden urge to innovate!</div>
                 </div>
             </div>
         </div>
@@ -221,436 +206,154 @@
 
 
 
-    <!-- Projects Section -->
-
-    <section id="projects" class="projects">
-
+    <!-- Experience Section (Ensure Present, Before Contact) -->
+    <section id="experience" class="experience animate-section">
         <div class="container">
-
-            <h2 class="section-title">My <span class="gradient-text">Projects</span></h2>
-
-            <div class="project-grid">
-
-                <div class="project-card">
-
-                    <h3>🌾 Krishi Navinikaran</h3>
-
-                    <p>A comprehensive farmer utility app designed to empower farmers with modern agricultural tools and information.</p>
-
-                    <div class="tags">
-
-                        <span data-tech="Android">Android</span>
-
-                        <span data-tech="Kotlin">Kotlin</span>
-
-                        <span data-tech="Firebase">Firebase</span>
-
-                        <span data-tech="ML">ML</span>
-
+        <h2 class="section-title accent-underline">Experience</h2>
+        <div class="experience-cards">
+          <div class="glass-card">
+            <div class="exp-title">Android Developer Lead</div>
+            <div class="exp-meta">Gautam Buddha University <span class="exp-date">06/2025 - Present</span></div>
+            <ul>
+              <li>Leading development of MyGBU Android app and other tech solutions.</li>
+              <li>Developing College App (MyGBU) for streamlining student services</li>
+              <li>Leading technical development teams and initiatives</li>
+              <li>Implementing innovative solutions for campus needs</li>
+            </ul>
                     </div>
-
+          <div class="glass-card">
+            <div class="exp-title">Software Developer Intern</div>
+            <div class="exp-meta">Gautam Buddha University <span class="exp-date">12/2024 - Present</span></div>
+            <ul>
+              <li>Developing Hostel app and tech solutions under DSA department.</li>
+              <li>Building GBU Hostels app for college administration</li>
+              <li>Creating data-driven dashboards for administration</li>
+              <li>Developing automation tools for improved efficiency</li>
+            </ul>
                 </div>
-
-                <div class="project-card">
-
-                    <h3>SkitterzAI</h3>
-
-                    <p>Advanced AI model for disease prediction using machine learning and computer vision techniques.</p>
-
-                    <div class="tags">
-
-                        <span data-tech="Python">Python</span>
-
-                        <span data-tech="TensorFlow">TensorFlow</span>
-
-                        <span data-tech="OpenCV">OpenCV</span>
-
-                    </div>
-
-                </div>
-
-                <div class="project-card">
-
-                    <h3>MaaFoods</h3>
-
-                    <p>E-commerce platform connecting home chefs with customers, featuring real-time order tracking.</p>
-
-                    <div class="tags">
-
-                        <span>React</span>
-
-                        <span>Node.js</span>
-
-                        <span>MongoDB</span>
-
-                    </div>
-
-                </div>
-
-                <div class="project-card">
-
-                    <h3>Vittify</h3>
-
-                    <p>Financial literacy app helping users learn about personal finance and investment strategies.</p>
-
-                    <div class="tags">
-
-                        <span>Flutter</span>
-
-                        <span>Firebase</span>
-
-                        <span>RESTful API</span>
-
-                    </div>
-
-                </div>
-
-                <div class="project-card">
-
-                    <h3>VaPr Weather Station</h3>
-
-                    <p>IoT-based industrial weather monitoring solution with real-time data analytics.</p>
-
-                    <div class="tags">
-
-                        <span>Arduino</span>
-
-                        <span>IoT</span>
-
-                        <span>Python</span>
-
-                        <span>MQTT</span>
-
-                    </div>
-
-                </div>
-
-                <div class="project-card">
-
-                    <h3>Skill Barter</h3>
-
-                    <p>Platform for users to exchange skills and knowledge through virtual meetups.</p>
-
-                    <div class="tags">
-
-                        <span>React Native</span>
-
-                        <span>Firebase</span>
-
-                        <span>WebRTC</span>
-
-                    </div>
-
-                </div>
-
-                <div class="project-card">
-
-                    <h3>Mindful</h3>
-
-                    <p>AI-powered chatbot providing mental health support and resources.</p>
-
-                    <div class="tags">
-
-                        <span>Python</span>
-
-                        <span>NLP</span>
-
-                        <span>TensorFlow</span>
-
-                        <span>Flask</span>
-
-                    </div>
-
-                </div>
-
-                <div class="project-card">
-
-                    <h3>MoodTune</h3>
-
-                    <p>AI-based song recommendation system using mood detection and music analysis.</p>
-
-                    <div class="tags">
-
-                        <span>Python</span>
-
-                        <span>Spotify API</span>
-
-                        <span>Machine Learning</span>
-
-                    </div>
-
-                </div>
-
-                <div class="project-card">
-
-                    <h3>BaddieBot: AI Chatbot</h3>
-
-                    <p>Developed an AI chatbot with dynamic personality traits, enabling natural and engaging conversations. Built using advanced NLP techniques and machine learning models.</p>
-
-                    <div class="project-tech">
-
-                        <span>Python</span>
-
-                        <span>NLP</span>
-
-                        <span>Machine Learning</span>
-
-                    </div>
-
-                </div>
-
+          <div class="glass-card">
+            <div class="exp-title">Community Speaker</div>
+            <div class="exp-meta">Arduino <span class="exp-date">03/2022 - 02/2025</span></div>
+            <ul>
+              <li>Featured speaker and community contributor for Arduino platform.</li>
+              <li>Delivered talks on AI & IoT innovation</li>
+              <li>Featured & interviewed by Arduino for outstanding projects</li>
+              <li>Conducted workshops on electronics & 3D printing</li>
+            </ul>
             </div>
-
         </div>
-
+      </div>
     </section>
 
 
 
-    <!-- Experience Section -->
+    <!-- Achievements Section -->
 
-    <section id="experience" class="experience">
-
+    <section id="highlights" class="achievements-section animate-section">
         <div class="container">
-
-            <h2 class="section-title">Experience & <span class="gradient-text">Achievements</span></h2>
-
-            <div class="experience-content glass-effect section-content">
-
-                <div class="achievements-list">
-
-                    <div class="achievement-item">
-
-                        <span class="achievement-icon">🌏</span>
-
-                        <p>Represented India internationally at Arduino Week</p>
-
-                    </div>
-
-                    <div class="achievement-item">
-
-                        <span class="achievement-icon">🎤</span>
-
-                        <p>Community Speaker at Arduino.cc</p>
-
-                </div>
-
-                    <div class="achievement-item">
-
-                        <span class="achievement-icon">📜</span>
-
-                        <p>Applied for a Patent</p>
+            <h2 class="section-title accent-underline">🌟 Highlights</h2>
+            <div class="achievement-grid">
+                <div class="achievement-box"><span class="achieve-icon">🎤</span><span class="achieve-text">Community Speaker – Arduino.cc</span></div>
+                <div class="achievement-box"><span class="achieve-icon">🌍</span><span class="achieve-text">Represented India – Arduino Week (Global Participation)</span></div>
+                <div class="achievement-box"><span class="achieve-icon">🏆</span><span class="achieve-text">Top 100 Teams in India – Bhashini x Microsoft Challenge</span></div>
+                <div class="achievement-box"><span class="achieve-icon">🥇</span><span class="achieve-text">1st Place – IoT Challenge, Ignition Hackathon</span></div>
+                <div class="achievement-box"><span class="achieve-icon">🥈</span><span class="achieve-text">2nd Place – Entrepreneur Hackathon</span></div>
+                <div class="achievement-box"><span class="achieve-icon">🥈</span><span class="achieve-text">2nd Place – Ignition Hackathon (Overall)</span></div>
+                <div class="achievement-box"><span class="achieve-icon">🧠</span><span class="achieve-text">Science & Innovation Award – Amity University</span></div>
+                <div class="achievement-box"><span class="achieve-icon">🥈</span><span class="achieve-text">2nd in College – Bhashini x Microsoft Challenge</span></div>
+                <div class="achievement-box"><span class="achieve-icon">✅</span><span class="achieve-text">Selected – Smart India Hackathon (SIH) Internal Round</span></div>
+                <div class="achievement-box"><span class="achieve-icon">🤝</span><span class="achieve-text">Startup Collaboration Offer – IIT Patna-based Startup</span></div>
+                <div class="achievement-box"><span class="achieve-icon">📩</span><span class="achieve-text">Internship Offer – RADS Global</span></div>
+                <div class="achievement-box"><span class="achieve-icon">🧑‍💻</span><span class="achieve-text">10+ product-ready projects across healthcare, agri-tech, legal tech, and IoT</span></div>
+                <div class="achievement-box"><span class="achieve-icon">👥</span><span class="achieve-text">HackFed Core Member</span></div>
+                <div class="achievement-box"><span class="achieve-icon">👥</span><span class="achieve-text">TechnoCultural Club Developer Co-Lead</span></div>
 
                     </div>
-
-                    <div class="achievement-item">
-
-                        <span class="achievement-icon">📱</span>
-
-                        <p>Two Apps Live Online</p>
-
+            <h2 class="section-title accent-underline">💼 Internships & Industry Exposure</h2>
+            <div class="achievement-grid">
+                <div class="achievement-box"><span class="achieve-icon">🎯</span><span class="achieve-text">Internship Offer – RADS Global</span></div>
+                <div class="achievement-box"><span class="achieve-icon">🤝</span><span class="achieve-text">Startup Collaboration – IIT Patna-based Startup</span></div>
+                <div class="achievement-box"><span class="achieve-icon">🏢</span><span class="achieve-text">Selected – GBU DSA Internship</span></div>
+                <div class="achievement-box"><span class="achieve-icon">⚙️</span><span class="achieve-text">Selected – GBU Automation Internship</span></div>
                 </div>
-
-                    <div class="achievement-item">
-
-                        <span class="achievement-icon">🏆</span>
-
-                        <p>Science & Innovation Award from Amity University</p>
-
-                    </div>
-
-                    <div class="achievement-item">
-
-                        <span class="achievement-icon">🚀</span>
-
-                        <p>Selected for Smart India Hackathon (SIH) 2024</p>
-
-                </div>
-
-                    <div class="achievement-item">
-
-                        <span class="achievement-icon">🥈</span>
-
-                        <p>2nd Place in Entrepreneur Hackathon 2024</p>
-
+            <h2 class="section-title accent-underline">📱 Projects (Product-Ready & Impact-Oriented)</h2>
+            <div class="achievement-grid">
+                <div class="achievement-box"><span class="achieve-icon">🤱</span><span class="achieve-text">MaaKosh – Maternal & neonatal care system (IoT + ML)</span></div>
+                <div class="achievement-box"><span class="achieve-icon">🌦️</span><span class="achieve-text">VaPr Weather Station – Smart farming weather station </span></div>
+                <div class="achievement-box"><span class="achieve-icon">🌱</span><span class="achieve-text">SkitterzAI – Plant disease + fertilizer recommendation AI</span></div>
+                <div class="achievement-box"><span class="achieve-icon">🗣️</span><span class="achieve-text">BoloNyay – Voice-based legal filing app in regional languages</span></div>
+                <div class="achievement-box"><span class="achieve-icon">💬</span><span class="achieve-text">Mindful – Chatbot for mentally challenged students</span></div>
+                <div class="achievement-box"><span class="achieve-icon">🚜</span><span class="achieve-text">Krishi Navinikaran – Multi-utility agri-support app</span></div>
+                <div class="achievement-box"><span class="achieve-icon">💸</span><span class="achieve-text">Vittify – Financial literacy platform for youth</span></div>
+                <div class="achievement-box"><span class="achieve-icon">🍲</span><span class="achieve-text">MaaFoods – Village-to-metro home-cooked food delivery</span></div>
+                <div class="achievement-box"><span class="achieve-icon">🤝</span><span class="achieve-text">Skill Barter App – Skill exchange platform for learners</span></div>
             </div>
-
-                    <div class="achievement-item">
-
-                        <span class="achievement-icon">💼</span>
-
-                        <p>Shortlisted for College Internship & Selected for Rads Global Internship</p>
-
-                            </div>
-
-                    <div class="achievement-item">
-
-                        <span class="achievement-icon">👨‍🏫</span>
-
-                        <p>Conducted Workshops at School Level on Electronics & 3D Printing</p>
-
-                    </div>
-
-                    <div class="achievement-item">
-
-                        <span class="achievement-icon">👥</span>
-
-                        <p>Community Member of HackFed (College Tech Community)</p>
-
-                </div>
-
-                    <div class="achievement-item">
-
-                        <span class="achievement-icon">🛠️</span>
-
-                        <p>Built AI & IoT Projects with Real-World Impact</p>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- Work Experience -->
-
-                <div class="experience-grid">
-
-                    <div class="experience-card">
-
-                        <div class="experience-header">
-
-                            <h3>Software Developer Intern</h3>
-
-                            <span class="company">GBU</span>
-
-                            <span class="period">2024 - Present</span>
-
-                        </div>
-
-                        <p>Working on innovative software solutions and contributing to university projects.</p>
-
-                        <ul class="achievements">
-
-                            <li>Developed multiple internal tools for process automation</li>
-
-                            <li>Collaborated with cross-functional teams on various projects</li>
-
-                            <li>Implemented new features and improvements in existing systems</li>
-
-                        </ul>
-
-                            </div>
-
-                   
-
-
-
-                    <div class="experience-card">
-
-                        <div class="experience-header">
-
-                            <h3>Freelance App Developer</h3>
-
-                            <span class="period">2022 - Present</span>
-
-                        </div>
-
-                        <p>Building custom mobile applications for clients across various industries.</p>
-
-                        <ul class="achievements">
-
-                            <li>Delivered 10+ successful projects to clients</li>
-
-                            <li>Maintained long-term relationships with clients</li>
-
-                            <li>Provided end-to-end solutions from design to deployment</li>
-
-                        </ul>
-
-                    </div>
-
-                </div>
-
+            <h2 class="section-title accent-underline">👨‍💼 Leadership & Community Roles</h2>
+            <div class="achievement-grid">
+                <div class="achievement-box"><span class="achieve-icon">🧑‍💻</span><span class="achieve-text">Developer Co-Lead – TechnoCultural Club, GBU</span></div>
+                <div class="achievement-box"><span class="achieve-icon">💡</span><span class="achieve-text">Core Team Member – HackFed (Tech Innovation Community, GBU)</span></div>
             </div>
-
         </div>
-
     </section>
 
 
 
     <!-- Contact Section -->
 
-    <section id="contact" class="contact">
-
+    <section id="contact" class="contact animate-section">
         <div class="container">
-
-            <h2 class="section-title">Get in <span class="gradient-text">Touch</span></h2>
-
-            <div class="contact-content">
-
-                <div class="contact-info">
-
-                    <p>Have a question or want to work together? Feel free to reach out!</p>
-
-                    <div class="social-links">
-
-                        <a href="mailto:vatbhadaurya@gmail.com" class="btn secondary">
-
+        <div class="contact-glass-card">
+          <h2 class="section-title accent-underline contact-heading" title="Let's make something awesome together!">
+            <span class="contact-icon">🤝</span> Let's Connect & Collaborate! <span class="contact-bubble">💬</span>
+          </h2>
+          <div class="contact-subheading">Open to new ideas, projects, and conversations. <span class="contact-wave">👋</span></div>
+          <div class="contact-links creative-contact-links">
+            <a href="mailto:vatbhadaurya@gmail.com" class="contact-link contact-link-yellow" aria-label="Email Vatsalya Bhadaurya">
                             <i class="fas fa-envelope"></i>
-
-                            Email
-
+              Email Me
                         </a>
-
-                        <a href="https://github.com/VatsalyaBhadaurya" class="btn secondary">
-
-                            <i class="fab fa-github"></i>
-
-                            GitHub
-
-                        </a>
-
-                        <a href="https://linkedin.com/in/vatsalya-bhadaurya" class="btn secondary">
-
+            <a href="https://linkedin.com/in/vatsalya-bhadaurya" class="contact-link contact-link-yellow" aria-label="LinkedIn Profile">
                             <i class="fab fa-linkedin"></i>
-
                             LinkedIn
-
-                        </a>
-
-                        <a href="https://www.youtube.com/@CodeSalya" class="btn secondary">
-
-                            <i class="fab fa-youtube"></i>
-
-                            YouTube
-
-                        </a>
-
-                    </div>
-
-                </div>
-
+            </a>
+            <a href="https://github.com/VatsalyaBhadaurya" class="contact-link contact-link-yellow" aria-label="GitHub Profile">
+              <i class="fab fa-github"></i>
+              GitHub
+            </a>
             </div>
-
         </div>
-
+        <hr class="contact-divider" />
+      </div>
     </section>
 
 
 
     <!-- Footer -->
 
-    <footer class="footer">
-
+    <footer class="footer improved-footer">
         <div class="container">
-
-            <p>© 2025 Vatsalya Bhadaurya. All rights reserved.</p>
-
-            <p class="desi-footer">Made with 🫱🏼‍🫲🏽 and lots of chai ☕</p>
-
+        <div class="footer-content">
+          <div class="footer-brand">
+            <p>Building tomorrow's solutions today</p>
+            <h3>Vatsalya Bhadaurya</h3>
+          </div>
         </div>
-
+        <div class="footer-glass-card">
+          <div class="footer-glass-content">
+            <div class="footer-social-circle">
+              <a href="https://github.com/VatsalyaBhadaurya" class="footer-social-icon" aria-label="GitHub" role="link"><i class="fab fa-github"></i></a>
+              <a href="https://linkedin.com/in/vatsalya-bhadaurya" class="footer-social-icon" aria-label="LinkedIn" role="link"><i class="fab fa-linkedin"></i></a>
+              <a href="https://www.youtube.com/@CodeSalya" class="footer-social-icon" aria-label="YouTube" role="link"><i class="fab fa-youtube"></i></a>
+            </div>
+            <blockquote class="footer-quote fadeInUp">
+              कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।<span class="sr-only">Karmanye vadhikaraste ma phaleshu kadachana. Shrimad Bhagavad Gita 2.47</span>
+              <span class="footer-quote-underline"></span>
+              <br><span class="footer-quote-attribution">— श्रीमद्भगवद्गीता 2.47</span>
+            </blockquote>
+            
+          <p>&copy; 2025 Vatsalya Bhadaurya. All rights reserved.</p>
+        </div>
+      </div>
     </footer>
 
 
@@ -659,24 +362,18 @@
     <div class="cursor"></div>
     <div class="cursor-trail"></div>
 
-    <!-- Add this before closing body tag -->
+    <!-- Chatbot -->
     <div class="chat-bot-container">
-        <button class="chat-bot-toggle">
-            <i class="fas fa-comment-dots"></i>
-        </button>
+        <button class="chat-bot-toggle">💬</button>
         <div class="chat-bot-window">
             <div class="chat-header">
-                <h3>Chat with VattyAI</h3>
-                <button class="close-chat">
-                    <i class="fas fa-times"></i>
-                </button>
+                <h3>Innovation Assistant</h3>
+                <button class="close-chat">×</button>
             </div>
             <div class="chat-messages"></div>
             <div class="chat-input-container">
-                <input type="text" class="chat-input" placeholder="Ask me anything...">
-                <button class="send-message">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
+                <input type="text" class="chat-input" placeholder="Type your message...">
+                <button class="send-message" disabled>➤</button>
             </div>
         </div>
     </div>
@@ -688,8 +385,6 @@
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 
         const navLinks = document.querySelector('.nav-links');
-
-        const navLinksItems = document.querySelectorAll('.nav-links a');
 
 
 
@@ -703,23 +398,19 @@
 
 
 
-        // Close mobile menu when clicking a link
-
-        navLinksItems.forEach(link => {
-
-            link.addEventListener('click', () => {
-
-                mobileMenuBtn.classList.remove('active');
-
-                navLinks.classList.remove('active');
-
-            });
-
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         });
 
 
 
-        // Smooth scrolling for anchor links
+        // Smooth Scroll
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
@@ -739,244 +430,277 @@
 
 
 
-        // Enhanced animation observer
+        // Chatbot Implementation
+        const API_KEY = 'AIzaSyBwIxpBvvFXYuEG5VKDW3gcae_v-lM92-M';
+        const API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
+        
+        const context = `👋 Hey! I'm Vatsalya's Innovation Assistant — basically, a digital version of him.
+I'm here to help you explore ideas, build cool tech, and solve real-world problems using AI, IoT, and software development.
 
-        const animationObserver = new IntersectionObserver((entries) => {
+Vatsalya is a tech innovator who's worked across industries like healthcare, smart agriculture, education, and fintech. From winning hackathons to leading Android development at his university — he's built projects like MaaKosh (maternal healthcare IoT system), VaPr Weather Station (for smart farming), SkitterzAI (plant disease detection), and BoloNyay (legal tech with regional language support).
 
-            entries.forEach(entry => {
+💡 Ask me about:
 
-                if (entry.isIntersecting) {
+How to turn your idea into a prototype
 
-                    entry.target.classList.add('animate-ready');
+Tools and stacks for AI, IoT, or Android apps
 
-                    // Optionally unobserve after animation
+Guidance on hackathons or innovation challenges
 
-                    animationObserver.unobserve(entry.target);
+Writing code or debugging projects
 
+Building for social impact using tech
+
+🏆 With awards from Microsoft-backed national challenges, multiple internships, and global community roles (like being an Arduino speaker), Vatsalya's experience powers this assistant. So whether you're a beginner, a student innovator, or a fellow builder — I've got your back.
+
+Ready to create something meaningful together?`;
+
+        // Initialize chat elements
+        const chatContainer = document.querySelector('.chat-bot-container');
+        const chatToggle = document.querySelector('.chat-bot-toggle');
+        const chatWindow = document.querySelector('.chat-bot-window');
+        const closeButton = document.querySelector('.close-chat');
+        const chatMessages = document.querySelector('.chat-messages');
+        const chatInput = document.querySelector('.chat-input');
+        const sendButton = document.querySelector('.send-message');
+
+        // Toggle chat window
+        chatToggle.addEventListener('click', () => {
+            chatWindow.style.display = chatWindow.style.display === 'flex' ? 'none' : 'flex';
+            if (chatWindow.style.display === 'flex') {
+                chatInput.focus();
+            }
+        });
+
+        // Close chat window
+        closeButton.addEventListener('click', () => {
+            chatWindow.style.display = 'none';
+        });
+
+        // Enable/disable send button based on input
+        chatInput.addEventListener('input', () => {
+            sendButton.disabled = !chatInput.value.trim();
+        });
+
+        // Handle send button click
+        sendButton.addEventListener('click', handleMessage);
+
+        // Handle enter key press
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey && !sendButton.disabled) {
+                e.preventDefault();
+                handleMessage();
+            }
+        });
+
+        // Add initial greeting
+        window.addEventListener('load', () => {
+            addMessage('bot', 'Hi! 👋 I\'m Vatsalya\'s Innovation Assistant. How can I help you today?');
+        });
+
+        // Add scroll-triggered animation
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            
+            // Add attention class
+            chatToggle.classList.add('attention');
+            
+            // Remove class after animation completes
+            scrollTimeout = setTimeout(() => {
+                chatToggle.classList.remove('attention');
+            }, 1000);
+        }, { passive: true });
+
+        function addMessage(type, message) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message', type);
+            
+            // Convert markdown-style code blocks to HTML
+            message = message.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
+            
+            // Convert markdown-style links
+            message = message.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+            
+            // Convert bold text (** **)
+            message = message.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            
+            // Convert italic text (* *)
+            message = message.replace(/\*(.*?)\*/g, '<em>$1</em>');
+            
+            // Convert line breaks to <br>
+            message = message.replace(/\n/g, '<br>');
+            
+            messageDiv.innerHTML = message;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            // Add animation class
+            messageDiv.classList.add('message-slide-in');
+        }
+
+        function showTypingIndicator() {
+            const typingDiv = document.createElement('div');
+            typingDiv.classList.add('typing-indicator');
+            typingDiv.innerHTML = `
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            `;
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            return typingDiv;
+        }
+
+        async function handleMessage() {
+            const message = chatInput.value.trim();
+            if (!message) return;
+
+            // Clear input and disable send button
+            chatInput.value = '';
+            sendButton.disabled = true;
+            
+            // Add user message
+            addMessage('user', message);
+
+            // Show typing indicator
+            const typingIndicator = showTypingIndicator();
+            
+            try {
+                const response = await fetch(`${API_URL}?key=${API_KEY}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        contents: [
+                            {
+                                role: "user",
+                                parts: [{ text: context }]
+                            },
+                            {
+                                role: "model",
+                                parts: [{ text: "I understand. I'll help users learn about Vatsalya's work and expertise." }]
+                            },
+                            {
+                                role: "user",
+                                parts: [{ text: message }]
+                            }
+                        ]
+                    })
+                });
+
+                // Remove typing indicator
+                typingIndicator.remove();
+
+                if (!response.ok) {
+                    const errorData = await response.text();
+                    console.error('API Error:', {
+                        status: response.status,
+                        statusText: response.statusText,
+                        errorData
+                    });
+                    throw new Error(`API error: ${response.status}`);
                 }
 
-            });
-
-        }, {
-
-            root: null,
-
-            rootMargin: '0px',
-
-            threshold: 0.1
-
-        });
-
-
-
-        // Observe all animated elements
-
-        document.querySelectorAll('.project-card, .achievement-item, .experience-card, .about-content, .experience-content').forEach(el => {
-
-            animationObserver.observe(el);
-
-        });
-
-
-
-        // Ensure animations work after page load
-
-        document.addEventListener('DOMContentLoaded', function() {
-
-            // Force repaint
-
-            document.body.style.display = 'none';
-
-            document.body.offsetHeight; // Trigger reflow
-
-            document.body.style.display = '';
-            
-
-            // Add animation classes after small delay
-
-            setTimeout(() => {
-
-                document.querySelectorAll('.project-card, .achievement-item, .experience-card, .about-content, .experience-content').forEach((el, index) => {
-
-                    el.style.transitionDelay = `${index * 0.1}s`;
-
-                });
-
-            }, 100);
-
-        });
-
-
-
-        // Scroll Progress Indicator
-        window.addEventListener('scroll', () => {
-            const scrollProgress = document.querySelector('.scroll-progress-bar');
-            const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
-            const scrolled = (window.scrollY / totalScroll) * 100;
-            scrollProgress.style.width = `${scrolled}%`;
-        });
-
-
-        // Smooth Cursor Animation
-        if (window.innerWidth > 768) {
-            const cursor = document.querySelector('.cursor');
-            const cursorTrail = document.querySelector('.cursor-trail');
-            
-            let mouseX = 0;
-            let mouseY = 0;
-            let cursorX = 0;
-            let cursorY = 0;
-            
-            // Smooth follow effect
-            function animate() {
-                // Smooth interpolation
-                const diffX = mouseX - cursorX;
-                const diffY = mouseY - cursorY;
+                const data = await response.json();
                 
-                cursorX += diffX * 0.1; // Adjust speed here (0.1 for smoother movement)
-                cursorY += diffY * 0.1;
+                if (data.candidates && data.candidates[0] && data.candidates[0].content) {
+                    const reply = data.candidates[0].content.parts[0].text;
+                    addMessage('bot', reply);
+                } else if (data.error) {
+                    console.error('API Response Error:', data.error);
+                    throw new Error(data.error.message || 'Invalid response from API');
+                } else {
+                    throw new Error('Invalid response format from API');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                let errorMessage = "I apologize, but I'm having trouble responding right now. ";
                 
-                cursor.style.left = `${cursorX}px`;
-                cursor.style.top = `${cursorY}px`;
+                if (error.message.includes('API error: 404')) {
+                    errorMessage += "The API endpoint could not be found. This might be a temporary issue.";
+                } else if (error.message.includes('API error: 403')) {
+                    errorMessage += "There seems to be an issue with the API key.";
+                } else if (error.message.includes('API error: 429')) {
+                    errorMessage += "We've hit the rate limit. Please try again in a moment.";
+                } else if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
+                    errorMessage += "Please check your internet connection and try again.";
+                }
                 
-                // Trail effect
-                cursorTrail.style.left = `${mouseX}px`;
-                cursorTrail.style.top = `${mouseY}px`;
+                errorMessage += " You can also reach out through email or LinkedIn.";
                 
-                requestAnimationFrame(animate);
+                // Remove typing indicator if it exists
+                if (typingIndicator) {
+                    typingIndicator.remove();
+                }
+                
+                addMessage('bot', errorMessage);
+            } finally {
+                // Re-enable send button if there's text
+                sendButton.disabled = !chatInput.value.trim();
+                chatInput.focus();
             }
-            
-            // Update mouse position
-            document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
+        }
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
             });
-            
-            // Start animation
-            animate();
-            
-            // Hide cursor when leaving window
-            document.addEventListener('mouseout', () => {
-                cursor.style.opacity = '0';
-                cursorTrail.style.opacity = '0';
+        }, observerOptions);
+
+        document.querySelectorAll('.project-card, .achievement-card, .experience-card, .about-content').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Desi dev joke: Agar yeh JS na chale toh samajh lo, nazar lag gayi! 😄
+        // Count-up animation for stats
+        function animateCountUp(el, target) {
+            let current = 0;
+            const isPlus = el.parentElement.dataset.count.includes('+');
+            const numTarget = parseInt(target);
+            const increment = 0.5; // Slower: count up by 1
+            const delay = 25; // Slower: 25ms per increment
+            function update() {
+                current += increment;
+                if (current >= numTarget) {
+                    el.textContent = numTarget + (isPlus ? '+' : '');
+                    el.classList.add('stat-bounce');
+                    setTimeout(()=>el.classList.remove('stat-bounce'), 700);
+                } else {
+                    el.textContent = current;
+                    setTimeout(update, delay);
+        }
+            }
+            update();
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.stat-item.animate-stat').forEach(function(stat) {
+                const num = parseInt(stat.dataset.count);
+                const numEl = stat.querySelector('.stat-number');
+                animateCountUp(numEl, num);
             });
-            
-            document.addEventListener('mouseover', () => {
-                cursor.style.opacity = '1';
-                cursorTrail.style.opacity = '0.3';
-            });
-            
-            // Enhanced hover effects
-            document.querySelectorAll('a, button, .project-card').forEach(element => {
-                element.addEventListener('mouseover', () => {
-                    cursor.style.transform = 'translate(-50%, -50%) scale(1.2) rotate(15deg)';
-                    if (element.classList.contains('project-card')) {
-                        cursor.style.filter = 'hue-rotate(45deg)';
+
+            // Animate sections on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('section-visible');
                     }
                 });
-                
-                element.addEventListener('mouseout', () => {
-                    cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-                    cursor.style.filter = 'none';
-                });
-            });
-        }
-
-    </script>
-
-    <script src="https://apis.google.com/js/api.js"></script>
-    <script>
-    // Chatbot Implementation
-    const chatContainer = document.querySelector('.chat-bot-container');
-    const toggleButton = document.querySelector('.chat-bot-toggle');
-    const closeButton = document.querySelector('.close-chat');
-    const chatWindow = document.querySelector('.chat-bot-window');
-    const messagesContainer = document.querySelector('.chat-messages');
-    const chatInput = document.querySelector('.chat-input');
-    const sendButton = document.querySelector('.send-message');
-
-    const API_KEY = 'AIzaSyAmSdliZN5lur_P-0i0E-bcNhV4MxGgqP4';
-    const context = `You're Vatsalya, a CS student at GBU with 6+ years of experience in technology since grade 8. You're skilled in app development, AI/ML, IoT, embedded electronics.
-
-Experience & Achievements:
-- International Recognition: Represented India at Arduino Week, Community Speaker at Arduino.cc
-- Hackathons & Innovation: 2nd place in Entrepreneur Hackathon 2024, Science & Innovation award from Amity University
-- Patent & Publications: Have an applied patent and conducted workshops on electronics and 3D printing
-- Internships & Leadership: Selected for remote internship at Rads Global, shortlisted for internship at GBU
-- Entrepreneurial Mindset: Working on side hustle developing iOS and Android apps for college students
-
-Notable Projects:
-- BaddieBot: AI chatbot with rebellious personality
-- MaaFoods: Home-cooked meal delivery app
-- SkitterzAI: AI plant disease detection
-- MoodTune: AI music recommendation system
-- And many more innovative solutions
-
-Currently balancing college studies, projects, internships, and startup initiatives.`;
-
-    toggleButton.addEventListener('click', () => {
-        chatWindow.classList.toggle('active');
-        toggleButton.classList.toggle('active');
-    });
-
-    closeButton.addEventListener('click', () => {
-        chatWindow.classList.remove('active');
-        toggleButton.classList.remove('active');
-    });
-
-    async function sendMessage(message) {
-        // Add user message to chat
-        addMessage('user', message);
-
-        try {
-            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    contents: [{
-                        parts: [{
-                            text: `${context}\n\nUser: ${message}\nVatsalya:`
-                        }]
-                    }]
-                })
-            });
-
-            const data = await response.json();
-            const reply = data.candidates[0].content.parts[0].text;
-            addMessage('bot', reply);
-        } catch (error) {
-            console.error('Error:', error);
-            addMessage('bot', 'Sorry, I encountered an error. Please try again.');
-        }
-    }
-
-    function addMessage(type, message) {
-        const messageDiv = document.createElement('div');
-        messageDiv.classList.add('message', type);
-        messageDiv.textContent = message;
-        messagesContainer.appendChild(messageDiv);
-        messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    }
-
-    sendButton.addEventListener('click', () => {
-        const message = chatInput.value.trim();
-        if (message) {
-            sendMessage(message);
-            chatInput.value = '';
-        }
-    });
-
-    chatInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            const message = chatInput.value.trim();
-            if (message) {
-                sendMessage(message);
-                chatInput.value = '';
-            }
-        }
+            }, { threshold: 0.15 });
+            document.querySelectorAll('.animate-section').forEach(el => observer.observe(el));
         });
+        // Desi dev: Yeh code toh butter chicken ki tarah smooth hai! -->
+
     </script>
 
 </body>
