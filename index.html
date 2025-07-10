@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en">
 
@@ -115,7 +115,7 @@
 
                 <div class="cta-buttons">
 
-                        <a href="https://drive.google.com/file/d/1ReS8BU72AIzqJ5oh2wvYL5WsP1T4RcY6/view" 
+                        <a href="https://drive.google.com/file/d/19qwzA7z0MeKScY7wdak55VU2bftktWJl/view" 
                        class="btn primary" 
                        target="_blank" 
                        rel="noopener noreferrer">
@@ -211,6 +211,16 @@
         <div class="container">
         <h2 class="section-title accent-underline">Experience</h2>
         <div class="experience-cards">
+          <div class="glass-card">
+            <div class="exp-title">AI Intern (R&D Department)</div>
+            <div class="exp-meta">I HUB ROBOTICS <span class="exp-date">Jul 2025 - Present</span></div>
+            <ul>
+              <li>Contributing to the development of AI systems for semi-humanoid robots under the R&D division.</li>
+              <li>Collaborate with the core team to integrate AI modules into the robot's ROS framework.</li>
+              <li>Participate in real-world/simulated testing and iterate based on feedback.</li>
+              <li>Training conversational models for natural interaction, and designing adaptive behavior logic tailored to real-world domains like classrooms and hospitals.</li>
+            </ul>
+                    </div>
           <div class="glass-card">
             <div class="exp-title">Android Developer Lead</div>
             <div class="exp-meta">Gautam Buddha University <span class="exp-date">06/2025 - Present</span></div>
@@ -361,6 +371,8 @@
     <!-- Add cursor elements -->
     <div class="cursor"></div>
     <div class="cursor-trail"></div>
+
+
 
     <!-- Chatbot -->
     <div class="chat-bot-container">
@@ -700,6 +712,52 @@ Ready to create something meaningful together?`;
             document.querySelectorAll('.animate-section').forEach(el => observer.observe(el));
         });
         // Desi dev: Yeh code toh butter chicken ki tarah smooth hai! -->
+
+        // Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.querySelector('.scroll-progress-bar');
+            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            scrollProgress.style.width = scrolled + '%';
+        });
+
+
+
+        // Active Navigation Links
+        const sections = document.querySelectorAll('section[id]');
+        const navigationLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navigationLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        navigationLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
     </script>
 
