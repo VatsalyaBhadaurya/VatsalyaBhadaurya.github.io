@@ -107,7 +107,7 @@ body.loading { overflow: hidden; }
     padding: 10px 0;
 }
 .nav-inner { position: relative; display: flex; align-items: center; justify-content: center; gap: 20px; min-height: 42px; }
-.nav-cta { position: absolute; right: 0; top: 50%; transform: translateY(-50%); }
+.nav-cta { position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: .85rem; padding: 8px 16px; }
 .logo { font-family: var(--mono); font-weight: 600; font-size: 1.3rem; letter-spacing: .5px; }
 .logo-dot { color: var(--accent); }
 .nav-links { display: flex; gap: 6px; }
@@ -118,7 +118,6 @@ body.loading { overflow: hidden; }
 .nav-index { font-family: var(--mono); font-size: .7rem; color: var(--accent); opacity: .7; }
 .nav-link:hover { color: var(--text); background: var(--surface); }
 .nav-link.active { color: #fff; background: var(--accent-soft); }
-.nav-cta { font-size: .85rem; padding: 8px 16px; }
 
 .mobile-menu-btn { display: none; flex-direction: column; gap: 5px; background: none; border: 0; cursor: pointer; padding: 6px; }
 .mobile-menu-btn span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: .25s; }
