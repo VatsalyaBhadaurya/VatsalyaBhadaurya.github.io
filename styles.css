@@ -332,6 +332,7 @@ body.has-cursor .cursor-dot, body.has-cursor .cursor-ring { opacity: 1; }
     }
     .nav-links.open { transform: translateX(0); }
     .nav-link { width: 100%; font-size: 1.05rem; padding: 13px 14px; }
+    .hero-socials { justify-content: center; }
     body.menu-open { overflow: hidden; }
 
     .section { padding: 72px 0; }

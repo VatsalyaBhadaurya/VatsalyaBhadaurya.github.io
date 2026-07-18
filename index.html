@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vatsalya Bhadaurya | AI Engineer</title>
+    <title>Vatsalya | AI Engineer</title>
     <meta name="description" content="Vatsalya Bhadaurya, AI Engineer specializing in humanoid robotics, multimodal perception, and on-device inference. IEEE author. Real-world deployments on Jetson, ROS2, and VLM/VLA pipelines.">
     <link rel="canonical" href="https://vatsalyaaa.me/">
     <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20rx%3D%2714%27%20fill%3D%27black%27/%3E%3Ctext%20x%3D%2732%27%20y%3D%2745%27%20font-family%3D%27monospace%27%20font-size%3D%2732%27%20font-weight%3D%27bold%27%20fill%3D%27white%27%20text-anchor%3D%27middle%27%3EVB%3C/text%3E%3C/svg%3E">
@@ -126,7 +126,7 @@
             <h2 class="section-title"><span class="section-index">01</span> About</h2>
             <div class="about-grid">
                 <div class="about-photo">
-                    <img src="dp.jpg" alt="Vatsalya Bhadaurya with a humanoid robot" width="960" height="1280" loading="lazy">
+                    <img src="dp.jpg" alt="Vatsalya Bhadaurya with a humanoid robot" loading="lazy">
                     <div class="about-photo-frame" aria-hidden="true"></div>
                 </div>
                 <div class="about-body">
@@ -675,12 +675,12 @@
                 el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
             });
             // Magnetic pull on primary CTAs
-            document.querySelectorAll('.btn').forEach(btn => {
+            document.querySelectorAll('.btn:not(.nav-cta)').forEach(btn => {
                 btn.addEventListener('mousemove', (e) => {
                     const r = btn.getBoundingClientRect();
                     const dx = e.clientX - (r.left + r.width / 2);
                     const dy = e.clientY - (r.top + r.height / 2);
-                    btn.style.transform = `translate(${dx * 0.18}px, ${dy * 0.28}px)`;
+                    btn.style.transform = `translate(${dx * 0.12}px, ${dy * 0.14}px)`;
                 });
                 btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
             });
