@@ -299,7 +299,10 @@ body.loading { overflow: hidden; }
 .x-embed-handle { font-family: var(--mono); font-size: .8rem; color: var(--accent); transition: color .2s; }
 .x-embed-handle:hover { color: #fff; }
 .x-embed-frame { min-height: 48px; }
-.x-embed .twitter-timeline { width: 100% !important; }
+.x-embed .twitter-timeline, .x-embed .twitter-tweet { width: 100% !important; margin: 0 auto !important; }
+.x-embed-fallback { display: inline-flex; align-items: center; gap: 8px; padding: 10px 4px;
+    font-family: var(--mono); font-size: .85rem; color: var(--accent); transition: gap .2s; }
+.x-embed-fallback:hover { gap: 12px; }
 
 /* ---------- Footer ---------- */
 .footer { border-top: 1px solid var(--border); padding: 50px 0 26px; background: var(--bg-2); }
