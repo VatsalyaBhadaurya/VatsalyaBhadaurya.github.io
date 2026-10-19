@@ -1,0 +1,68 @@
+# Vatsalya Bhadaurya
+
+> Vatsalya Bhadaurya is an AI Engineer specializing in humanoid robotics, multimodal
+> perception, on-device inference, and embodied AI. He builds Vision-Language-Action
+> (VLA) systems deployed on real robots — not simulations — and is an IEEE-published
+> researcher. Based in India.
+
+## Who he is
+
+- **Name:** Vatsalya Bhadaurya
+- **Role:** AI Engineer at iHub Research & Robotics Pvt Ltd (promoted from AI Intern, R&D)
+- **Founder:** Nextgen Research Lab & Infrastructure Development Pvt. Ltd. (https://nextgenrl.com/)
+- **Focus:** Humanoid perception & behavior, on-device ML, VLM/VLA pipelines, edge AI on NVIDIA Jetson
+- **Education:** B.Tech Computer Science, Gautam Buddha University (expected 2028)
+- **Location:** India — open to research & engineering roles
+- **Website:** https://vatsalyaaa.me/
+- **Email:** vatbhadaurya@gmail.com
+
+## Core expertise
+
+AI & ML: VLA, VLM, YOLOv8, CNNs, Transformers, Whisper, VAD, TensorFlow, OpenCV, DINOv3,
+SAM 2.1, Depth Anything, DUSt3R, GPT-OSS, LLaVA-style models.
+Robotics & Perception: ROS2, rclcpp, multimodal fusion, speech-to-intent-to-action, SLAM,
+behavior trees. Hardware: Jetson AGX / Orin Nano, Blackwell, STM32, ESP32-S3, Arduino,
+Raspberry Pi, sensor fusion, Docker, Linux. Software & Cloud: Python, C/C++, Kotlin/Java,
+TypeScript, FastAPI, Flask, Next.js/React, ESP-IDF, Gemini API, multi-agent orchestration,
+Supabase, Firebase.
+
+## Experience
+
+- **AI Engineer**, iHub Research & Robotics (Sep 2026 – present): VLA systems for the TARA
+  humanoid platforms; research-paper publications with the R&D team.
+- **AI Intern, R&D**, iHub Research & Robotics (Jul 2025 – Aug 2026): humanoid perception
+  pipelines (DINOv3, SAM 2.1, Depth Anything, DUSt3R); speech→intent→action with Whisper;
+  VLA behavior engine for TARA Care & TARA Edu; Jetson Orin Nano deployment; TVS Automobiles
+  alloy-defect & paint-anomaly vision.
+- **Software Developer Intern**, Gautam Buddha University (Dec 2024 – present).
+- **Community Speaker**, Arduino (2022 – 2025).
+
+## Selected work
+
+- [GangaDrishti — IEEE paper](https://ieeexplore.ieee.org/document/11469066): real-time
+  multimodal microplastic detection sensor (multispectral optics, impedance spectroscopy,
+  500x microscopy on ESP32-S3; YOLOv8-C + attention fusion; 8-bit TFLite <200 ms). IEEE
+  IC3ECSBHI 2026. Project: https://microplastic.vatsalyaaa.me
+- [vla.cpp](https://github.com/VinRobotics/vla.cpp): open-source C++ inference runtime for
+  VLA models; two merged PRs (#12 Windows/WSL2+CUDA build path, #17 LIBERO evaluation).
+- [MaaKosh](https://nextgenrl.com/): AI maternal & newborn wearable (fetal tracking, PPH,
+  temperature, jaundice detection), tested at RML Hospital, Delhi.
+- [VitaSense](https://vitasense.nextgenrl.com/): offline-first pediatric screening for ASHA
+  workers; India Top 16, BioMed Bharat 2026.
+- [FoundryBuild](https://foundrybuild.xyz): multi-agent "AI CTO" — 11-agent pipeline that
+  turns an idea into an engineering blueprint.
+- SecondMind (ESP32-S3 AI pendant, 2nd place hackathon), BoloNyay (multilingual legal AI,
+  India Top 100), TARA Care & TARA Edu (humanoid platforms).
+
+## Recognition
+
+NASSCOM AI CoE Top 25 Startups (India); UP Deeptech Mission + BlueHill VC; India Top 16
+BioMed Bharat 2026; Google AI for Future Fund; India Top 100 Bhasha Bandhu (Microsoft ×
+Bhashini); IEEE paper IC3ECSBHI 2026; Arduino community speaker; multiple hackathon wins.
+
+## Links
+
+- Website: https://vatsalyaaa.me/
+- GitHub: https://github.com/VatsalyaBhadaurya
+- LinkedIn: https://linkedin.com/in/vatsalya-bhadaurya
+- Email: vatbhadaurya@gmail.com
