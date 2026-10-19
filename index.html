@@ -521,7 +521,7 @@
         <div class="container">
             <h2 class="section-title"><span class="section-index"><i aria-hidden="true" class="fab fa-x-twitter"></i></span> Latest from X</h2>
             <div class="x-feed-wrap">
-                <iframe class="x-feed-iframe" src="https://rss.app/embed/v1/carousel/miD5EeEjrXbD2ifB" title="Latest posts from @_Vaastavikata on X" loading="lazy" frameborder="0"></iframe>
+                <rssapp-carousel id="miD5EeEjrXbD2ifB"></rssapp-carousel>
             </div>
             <a class="x-feed-link" href="https://x.com/_Vaastavikata" target="_blank" rel="noopener noreferrer">Follow @_Vaastavikata on X <i aria-hidden="true" class="fas fa-arrow-up-right-from-square"></i></a>
         </div>
@@ -570,6 +570,9 @@
 
     <!-- GSAP core (free): used only for the intro reveal, not scrolling -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <!-- RSS.app carousel: renders the 'Latest from X' widget, auto-updating from the feed -->
+    <script src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async></script>
 
     <script>
         // ---- Motion / pointer flags ----
