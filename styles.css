@@ -286,6 +286,21 @@ body.loading { overflow: hidden; }
 .contact-head { font-size: clamp(1.4rem, 3.2vw, 2rem); font-weight: 700; max-width: 640px; margin: 0 auto 30px; letter-spacing: -.4px; position: relative; }
 .contact-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; position: relative; }
 
+/* X / Twitter latest-posts embed — framed to sit inside the dark theme */
+.x-embed {
+    max-width: 480px; margin: 28px auto 0; text-align: left;
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 6px 14px 12px;
+}
+.x-embed-head { display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    padding: 12px 4px; border-bottom: 1px solid var(--border); margin-bottom: 6px; }
+.x-embed-title { font-family: var(--mono); font-size: .82rem; color: var(--text); display: inline-flex; align-items: center; gap: 8px; }
+.x-embed-title i { color: #fff; }
+.x-embed-handle { font-family: var(--mono); font-size: .8rem; color: var(--accent); transition: color .2s; }
+.x-embed-handle:hover { color: #fff; }
+.x-embed-frame { min-height: 48px; }
+.x-embed .twitter-timeline { width: 100% !important; }
+
 /* ---------- Footer ---------- */
 .footer { border-top: 1px solid var(--border); padding: 50px 0 26px; background: var(--bg-2); }
 .footer-inner { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px; }

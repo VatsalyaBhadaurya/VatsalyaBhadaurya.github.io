@@ -65,4 +65,5 @@ Bhashini); IEEE paper IC3ECSBHI 2026; Arduino community speaker; multiple hackat
 - Website: https://vatsalyaaa.me/
 - GitHub: https://github.com/VatsalyaBhadaurya
 - LinkedIn: https://linkedin.com/in/vatsalya-bhadaurya
+- X (Twitter): https://x.com/_Vaastavikata
 - Email: vatbhadaurya@gmail.com
