@@ -310,7 +310,7 @@ body.loading { overflow: hidden; }
 .robot-counter { position: relative; width: 100%; max-width: 440px; margin: 26px auto 8px; container-type: inline-size; }
 .robot-counter img { width: 100%; height: auto; display: block; }
 /* Overlay matches the dashed box: left 50.8%, top 29.7%, 41.6% × 31.5% of the image */
-.rc-count { position: absolute; left: 50.8%; top: 29.7%; width: 41.6%; height: 31.5%;
+.rc-count { position: absolute; left: 50.8%; top: 33%; width: 41.6%; height: 31.5%;
     display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.8cqw; text-align: center; }
 .rc-num { font-family: var(--sans); font-weight: 800; color: #1b2a4a; line-height: 1; letter-spacing: .3px;
     font-size: 1.5rem; font-size: clamp(12px, 6.6cqw, 32px); }
