@@ -714,7 +714,8 @@
             if (!el) return;
             const BASE = 20000;
             const render = (n) => { el.textContent = n.toLocaleString('en-US') + '+'; };
-            fetch('https://vatsalya.goatcounter.com/counter/TOTAL.json')
+            const bust = Math.floor(Date.now() / 60000); // 1-min bucket; avoids a stale cached 403
+            fetch('https://vatsalya.goatcounter.com/counter/TOTAL.json?v=' + bust)
                 .then(r => r.ok ? r.json() : Promise.reject())
                 .then(d => {
                     const live = parseInt(String(d.count_unique || d.count || '0').replace(/[^0-9]/g, ''), 10) || 0;
