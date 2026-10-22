@@ -107,7 +107,6 @@ body.loading { overflow: hidden; }
     padding: 10px 0;
 }
 .nav-inner { position: relative; display: flex; align-items: center; justify-content: center; gap: 20px; min-height: 42px; }
-.nav-cta { position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: .85rem; padding: 8px 16px; }
 .logo { font-family: var(--mono); font-weight: 600; font-size: 1.3rem; letter-spacing: .5px; }
 .logo-dot { color: var(--accent); }
 .nav-links { display: flex; gap: 6px; }
@@ -342,7 +341,6 @@ body.has-cursor .cursor-dot, body.has-cursor .cursor-ring { opacity: 1; }
 }
 
 @media (max-width: 760px) {
-    .nav-cta { display: none; }
     .mobile-menu-btn { display: flex; position: absolute; right: 0; top: 50%; transform: translateY(-50%); z-index: 20; }
     .nav-links {
         position: fixed; top: 0; right: 0; width: min(82vw, 320px); height: 100vh; height: 100dvh;
