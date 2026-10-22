@@ -561,7 +561,7 @@
                 <a href="https://x.com/_Vaastavikata" aria-label="X (Twitter)" target="_blank" rel="noopener noreferrer"><i aria-hidden="true" class="fab fa-x-twitter"></i></a>
             </div>
         </div>
-        <div class="footer-bottom">© <span id="year">2026</span> Vatsalya Bhadaurya · All rights reserved.</div>
+        <div class="footer-bottom">© <span id="year">2026</span> Vatsalya Bhadaurya · All rights reserved. · <span class="visitor-stat" title="Lifetime visitors: live count plus an estimate of traffic from before analytics were added."><span id="visitorCount">20,000+</span> visitors <span class="visitor-note">(incl. prior)</span></span></div>
     </footer>
 
     <!-- Custom cursor (desktop / fine-pointer only) -->
@@ -707,6 +707,21 @@
 
         // Current year
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Visitor count: live GoatCounter total + an estimate of prior traffic (labelled as such)
+        (function visitorCount() {
+            const el = document.getElementById('visitorCount');
+            if (!el) return;
+            const BASE = 20000;
+            const render = (n) => { el.textContent = n.toLocaleString('en-US') + '+'; };
+            fetch('https://vatsalya.goatcounter.com/counter/TOTAL.json')
+                .then(r => r.ok ? r.json() : Promise.reject())
+                .then(d => {
+                    const live = parseInt(String(d.count_unique || d.count || '0').replace(/[^0-9]/g, ''), 10) || 0;
+                    render(BASE + live);
+                })
+                .catch(() => render(BASE));
+        })();
 
         // ---- 1. Terminal typing line (subtle, rotates) ----
         (function typing() {

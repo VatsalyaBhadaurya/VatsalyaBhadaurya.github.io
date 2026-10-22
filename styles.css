@@ -305,6 +305,9 @@ body.loading { overflow: hidden; }
 .footer-social a { width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid var(--border); border-radius: 10px; color: var(--text-dim); transition: .2s; }
 .footer-social a:hover { color: #fff; border-color: var(--border-hi); background: var(--accent-soft); }
 .footer-bottom { text-align: center; color: var(--text-mute); font-size: .82rem; margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--border); }
+.visitor-stat { white-space: nowrap; font-family: var(--mono); }
+#visitorCount { color: var(--text-dim); }
+.visitor-note { color: var(--text-mute); }
 
 /* ---------- Custom cursor ---------- */
 .cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none;
