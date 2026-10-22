@@ -298,18 +298,35 @@ body.loading { overflow: hidden; }
 .footer-social a:hover { color: #fff; border-color: var(--border-hi); background: var(--accent-soft); }
 .footer-bottom { text-align: center; color: var(--text-mute); font-size: .82rem; margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--border); }
 
-/* Robot visitor counter — live count overlaid on the illustration's dashed placeholder */
-.robot-counter { position: relative; width: 100%; max-width: 440px; margin: 26px auto 8px; container-type: inline-size; }
-.robot-counter::before { content: ""; position: absolute; inset: 0; z-index: 0;
-    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
-.robot-counter img { position: relative; z-index: 1; width: 100%; height: auto; display: block; }
-/* Overlay matches the dashed box: left 50.8%, top 29.7%, 41.6% × 31.5% of the image */
-.rc-count { position: absolute; z-index: 2; left: 50.8%; top: 34.5%; width: 41.6%; height: 31.5%;
-    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.8cqw; text-align: center; }
-.rc-num { font-family: var(--sans); font-weight: 800; color: #1b2a4a; line-height: 1; letter-spacing: .3px;
-    font-size: 1.5rem; font-size: clamp(12px, 6.6cqw, 32px); }
-.rc-cap { font-family: var(--mono); text-transform: uppercase; letter-spacing: 1px; color: #3b74d6;
-    font-size: .55rem; font-size: clamp(6px, 2.5cqw, 11px); }
+/* Visitor counter card — robot (left) + dark counter panel (right), above the footer branding */
+.vcard {
+    display: flex; align-items: center; gap: clamp(14px, 3vw, 34px);
+    max-width: 600px; margin: 0 auto clamp(40px, 6vw, 60px);
+    padding: clamp(18px, 3vw, 28px) clamp(20px, 3.5vw, 36px);
+    background: linear-gradient(160deg, #101218, #0b0c10);
+    border: 1px solid var(--border); border-radius: var(--radius);
+    box-shadow: var(--shadow), 0 0 44px -22px rgba(59, 116, 214, 0.45);
+    position: relative; overflow: hidden;
+}
+.vcard::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(340px 150px at 20% 35%, rgba(59, 116, 214, 0.10), transparent 70%); }
+/* Robot cropped from the left ~46% of the illustration (aspect 92:100) so it points at the panel */
+.vcard-robot { position: relative; z-index: 1; flex: 0 0 auto;
+    width: clamp(104px, 30%, 180px); aspect-ratio: 92 / 100;
+    background: url('robot-counter.png') left center / auto 100% no-repeat; }
+.vcard-panel { position: relative; z-index: 1; flex: 1 1 auto; min-width: 0; }
+.vcard-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 10px; margin-bottom: 12px; }
+.vcard-title { font-family: var(--mono); font-weight: 600; letter-spacing: 1.5px; color: var(--text);
+    font-size: clamp(.72rem, 2.4vw, .92rem); }
+.vcard-live { font-family: var(--mono); font-size: .6rem; letter-spacing: 1px; color: var(--text-mute);
+    display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.vcard-dot { width: 7px; height: 7px; border-radius: 50%; background: #3b74d6; box-shadow: 0 0 7px rgba(59, 116, 214, 0.9); }
+.vcard-display { text-align: center; padding: clamp(12px, 2.6vw, 20px);
+    border: 1px solid var(--border); border-radius: var(--radius-sm); background: rgba(255, 255, 255, 0.02); }
+.vcard-num { display: block; font-family: var(--sans); font-weight: 800; line-height: 1; letter-spacing: .5px;
+    color: #fff; font-size: clamp(1.7rem, 7vw, 2.9rem); }
+.vcard-sub { display: block; margin-top: 9px; font-family: var(--mono); text-transform: uppercase;
+    font-size: .62rem; letter-spacing: 2px; color: var(--text-mute); }
 
 /* ---------- Custom cursor ---------- */
 .cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none;
