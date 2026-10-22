@@ -310,9 +310,9 @@ body.loading { overflow: hidden; }
 }
 .vcard::before { content: ""; position: absolute; inset: 0; pointer-events: none;
     background: radial-gradient(340px 150px at 20% 35%, rgba(59, 116, 214, 0.10), transparent 70%); }
-/* Robot cropped from the left ~46% of the illustration (aspect 92:100) so it points at the panel */
+/* Robot cropped from the left ~48% of the illustration (aspect 96:100) so the full hand shows */
 .vcard-robot { position: relative; z-index: 1; flex: 0 0 auto;
-    width: clamp(104px, 30%, 180px); aspect-ratio: 92 / 100;
+    width: clamp(108px, 31%, 188px); aspect-ratio: 96 / 100;
     background: url('robot-counter.png') left center / auto 100% no-repeat; }
 .vcard-panel { position: relative; z-index: 1; flex: 1 1 auto; min-width: 0; }
 .vcard-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 10px; margin-bottom: 12px; }
