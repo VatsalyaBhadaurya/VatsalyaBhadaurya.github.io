@@ -36,6 +36,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dseg@0.46.0/css/dseg.min.css">
     <noscript><style>.preloader{display:none!important}.reveal{opacity:1!important;transform:none!important}</style></noscript>
 
     <!-- Structured data: identity graph for search engines & AI agents -->
@@ -188,7 +189,6 @@
             <div class="stat"><span class="stat-num" data-count="10" data-plus="true">0</span><span class="stat-label">Product-Ready Projects</span></div>
             <div class="stat"><span class="stat-num" data-count="12" data-plus="true">0</span><span class="stat-label">Awards &amp; Honors</span></div>
             <div class="stat"><span class="stat-num" data-count="5" data-plus="true">0</span><span class="stat-label">Years Building</span></div>
-            <div class="stat" title="Lifetime visitors: live count plus an estimate of traffic from before analytics were added."><span class="stat-num" id="visitorStatNum">20,000+</span><span class="stat-label">Lifetime Visitors</span></div>
         </div>
     </section>
 
@@ -563,6 +563,10 @@
             </div>
         </div>
         <div class="footer-bottom">© <span id="year">2026</span> Vatsalya Bhadaurya · All rights reserved.</div>
+        <div class="visitor-counter" title="Lifetime visitors: live count plus an estimate of traffic from before analytics were added.">
+            <span class="vc-panel"><span class="vc-ghost" aria-hidden="true">888888</span><span class="vc-digits" id="vcDigits">020000</span></span>
+            <span class="vc-label">lifetime visitors</span>
+        </div>
     </footer>
 
     <!-- Custom cursor (desktop / fine-pointer only) -->
@@ -691,7 +695,6 @@
                 if (!e.isIntersecting) return;
                 e.target.querySelectorAll('.stat-num').forEach(el => {
                     const target = parseInt(el.dataset.count, 10);
-                    if (isNaN(target)) return; // skip dynamic stats (e.g. live visitors)
                     const plus = el.dataset.plus === 'true';
                     let n = 0;
                     const step = Math.max(1, Math.round(target / 30));
@@ -710,12 +713,24 @@
         // Current year
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Visitor count: live GoatCounter total + an estimate of prior traffic (labelled as such)
-        (function visitorCount() {
-            const el = document.getElementById('visitorStatNum');
+        // Bottom visitor counter: live GoatCounter total + estimated prior traffic, as a 7-seg readout
+        (function visitorCounter() {
+            const el = document.getElementById('vcDigits');
             if (!el) return;
-            const BASE = 20000;
-            const render = (n) => { el.textContent = n.toLocaleString('en-US') + '+'; };
+            const panel = el.closest('.vc-panel');
+            const ghost = panel && panel.querySelector('.vc-ghost');
+            const BASE = 20000, PAD = 6;
+            const render = (n) => {
+                const s = String(n).padStart(PAD, '0');
+                el.textContent = s;
+                if (ghost) ghost.textContent = '8'.repeat(s.length);
+            };
+            // Show the unlit-segment ghost only if the 7-seg font actually loaded
+            if (document.fonts && document.fonts.ready) {
+                document.fonts.ready.then(() => {
+                    if (panel && document.fonts.check("16px 'DSEG7-Classic'")) panel.classList.add('seg');
+                });
+            }
             const bust = Math.floor(Date.now() / 60000); // 1-min bucket; avoids a stale cached 403
             fetch('https://vatsalya.goatcounter.com/counter/TOTAL.json?v=' + bust)
                 .then(r => r.ok ? r.json() : Promise.reject())
