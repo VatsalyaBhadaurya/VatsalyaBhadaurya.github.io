@@ -188,6 +188,7 @@
             <div class="stat"><span class="stat-num" data-count="10" data-plus="true">0</span><span class="stat-label">Product-Ready Projects</span></div>
             <div class="stat"><span class="stat-num" data-count="12" data-plus="true">0</span><span class="stat-label">Awards &amp; Honors</span></div>
             <div class="stat"><span class="stat-num" data-count="5" data-plus="true">0</span><span class="stat-label">Years Building</span></div>
+            <div class="stat" title="Lifetime visitors: live count plus an estimate of traffic from before analytics were added."><span class="stat-num" id="visitorStatNum">20,000+</span><span class="stat-label">Lifetime Visitors</span></div>
         </div>
     </section>
 
@@ -561,7 +562,7 @@
                 <a href="https://x.com/_Vaastavikata" aria-label="X (Twitter)" target="_blank" rel="noopener noreferrer"><i aria-hidden="true" class="fab fa-x-twitter"></i></a>
             </div>
         </div>
-        <div class="footer-bottom">© <span id="year">2026</span> Vatsalya Bhadaurya · All rights reserved. · <span class="visitor-stat" title="Lifetime visitors: live count plus an estimate of traffic from before analytics were added."><span id="visitorCount">20,000+</span> visitors <span class="visitor-note">(incl. prior)</span></span></div>
+        <div class="footer-bottom">© <span id="year">2026</span> Vatsalya Bhadaurya · All rights reserved.</div>
     </footer>
 
     <!-- Custom cursor (desktop / fine-pointer only) -->
@@ -690,6 +691,7 @@
                 if (!e.isIntersecting) return;
                 e.target.querySelectorAll('.stat-num').forEach(el => {
                     const target = parseInt(el.dataset.count, 10);
+                    if (isNaN(target)) return; // skip dynamic stats (e.g. live visitors)
                     const plus = el.dataset.plus === 'true';
                     let n = 0;
                     const step = Math.max(1, Math.round(target / 30));
@@ -710,7 +712,7 @@
 
         // Visitor count: live GoatCounter total + an estimate of prior traffic (labelled as such)
         (function visitorCount() {
-            const el = document.getElementById('visitorCount');
+            const el = document.getElementById('visitorStatNum');
             if (!el) return;
             const BASE = 20000;
             const render = (n) => { el.textContent = n.toLocaleString('en-US') + '+'; };
