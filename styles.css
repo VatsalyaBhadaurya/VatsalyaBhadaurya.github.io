@@ -144,6 +144,17 @@ body.loading { overflow: hidden; }
 .hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; opacity: .55; pointer-events: none;
     -webkit-mask-image: radial-gradient(ellipse 70% 70% at 60% 45%, #000 40%, transparent 85%);
             mask-image: radial-gradient(ellipse 70% 70% at 60% 45%, #000 40%, transparent 85%); }
+/* Hero robot — perception-HUD illustration anchored right, faded into the background */
+.hero-robot { position: absolute; top: 0; right: 0; width: 60%; height: 100%; z-index: 1; pointer-events: none;
+    background: url('robot-component.png') no-repeat center right / cover; opacity: .92;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 32%);
+            mask-image: linear-gradient(to right, transparent 0, #000 32%); }
+@media (max-width: 900px) { .hero-robot { width: 78%; opacity: .5; } }
+@media (max-width: 600px) { .hero-robot { width: 100%; opacity: .18;
+    -webkit-mask-image: linear-gradient(to bottom, #000 18%, transparent 92%);
+            mask-image: linear-gradient(to bottom, #000 18%, transparent 92%); } }
+@media (prefers-reduced-motion: no-preference) { .hero-robot { transition: opacity .6s ease; } }
+
 .hero-inner { max-width: 800px; position: relative; z-index: 2; }
 
 /* Terminal window */
