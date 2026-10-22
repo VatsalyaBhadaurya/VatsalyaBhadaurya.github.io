@@ -155,7 +155,7 @@ body.loading { overflow: hidden; }
             mask-image: linear-gradient(to bottom, #000 18%, transparent 92%); } }
 @media (prefers-reduced-motion: no-preference) { .hero-robot { transition: opacity .6s ease; } }
 
-.hero-inner { max-width: 800px; position: relative; z-index: 2; }
+.hero-inner { max-width: 620px; margin-left: clamp(0px, 3vw, 64px); margin-right: auto; position: relative; z-index: 2; }
 
 /* Terminal window */
 .terminal { width: min(440px, 100%); font-family: var(--mono); margin-bottom: 24px; border-radius: 11px; overflow: hidden;
